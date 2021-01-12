@@ -1,0 +1,22 @@
+import React from 'react'
+
+const SkillSection = ({title, skills, image}) => (
+  <div
+    style={{backgroundColor: '#00000044'}}
+    className='flex flex-col items-center'
+  >
+    <img
+      src={image}
+      alt={title}
+      className='w-1/2 mt-3 mb-5'
+    />
+    <h1 className='uppercase text-2xl tracking-widest mb-3'>{title}</h1>
+    <div className='flex flex-col items-center mb-7 leading-relaxed'>
+      {skills.map(item => (
+        <div className='uppercase' key={item}>{item}</div>
+      ))}
+    </div>
+  </div>
+)
+
+export default SkillSection

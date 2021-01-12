@@ -1,0 +1,12 @@
+---
+- title: Chris Kumms Web Designs
+  description: Full stack solutions from Chris Kumm
+  author: Chris Kumm
+  lang: en
+
+  cardImage: images/cardImage.jpg
+  favicon: images/favicon.png
+
+  # Maskable icon for PWAs
+  # https://web.dev/maskable-icon/
+  maskableIcon: images/maskableIcon.png
