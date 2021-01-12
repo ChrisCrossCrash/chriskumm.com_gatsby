@@ -21,6 +21,8 @@ const Hero = () => (
         Portfolio
       </a>
 
+      {/* TODO: Add a 'contact' button here also */}
+
     </div>
     <Waves/>
   </div>
