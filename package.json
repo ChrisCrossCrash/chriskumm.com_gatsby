@@ -1,7 +1,7 @@
 {
-  "name": "ck_gatsby",
-  "private": true,
-  "description": "A custom starter for my Gatsby projects",
+  "name": "chriskumm.com_gatsby",
+  "private": false,
+  "description": "My online portfolio",
   "version": "0.1.0",
   "license": "UNLICENSED",
   "scripts": {
@@ -47,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChrisCrossCrash/ck_gatsby.git"
+    "url": "git+https://github.com/ChrisCrossCrash/chriskumm.com_gatsby.git"
   },
   "bugs": {
-    "url": "https://github.com/ChrisCrossCrash/ck_gatsby/issues"
+    "url": "https://github.com/ChrisCrossCrash/chriskumm.com_gatsby/issues"
   },
-  "homepage": "https://github.com/ChrisCrossCrash/ck_gatsby",
+  "homepage": "https://github.com/ChrisCrossCrash/chriskumm.com_gatsby",
   "main": "gatsby-config.js",
   "keywords": [],
   "author": "Christopher Kumm"
