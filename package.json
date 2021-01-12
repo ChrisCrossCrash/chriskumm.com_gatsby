@@ -6,7 +6,6 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "gatsby build",
-    "build-production": "set SITE_URL=https://www.chriskumm.com&& set DJANGO_URL=https://www.chriskumm.com&& gatsby build",
     "develop": "gatsby develop -p 3000",
     "deploy": "pscp -v -r public ubuntu@chriskumm.com:/home/ubuntu",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

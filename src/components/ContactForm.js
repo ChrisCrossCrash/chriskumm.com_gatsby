@@ -14,6 +14,7 @@ const ContactForm = () => {
         message: '',
       }}
       validationSchema={Yup.object({
+        // Don't forget to match these restrictions in the back end!
         name: Yup.string()
           .max(50, 'Must be 50 characters or less')
           .required('Required'),
@@ -21,7 +22,8 @@ const ContactForm = () => {
           .email('Invalid email address')
           .required('Required'),
         message: Yup.string()
-          .required('Required'),
+          .required('Required')
+          .max(5000, 'must be 5000 characters or less'),
       })}
       onSubmit={async (values) => {
         // What happens during form submission with Formik?:
@@ -29,6 +31,7 @@ const ContactForm = () => {
 
         let response, data
 
+        console.log('sent values:', values)
         try {
           response = await fetch(`${process.env.DJANGO_URL}/api/submit-inquiry/`, {
             method: 'POST',
@@ -37,6 +40,7 @@ const ContactForm = () => {
             },
             body: JSON.stringify(values),
           })
+          console.log('response:', response)
           data = await response.json()
         } catch (error) {
           alert(`Something went wrong:\n\n${error.name}: ${error.message}`)
@@ -65,7 +69,7 @@ const ContactForm = () => {
           <button
             className={`mt-0.5 bg-gray-500 text-white py-3 px-5 rounded-lg font-bold shadow
         focus:ring focus:ring-gray-300 hover:bg-gray-600 transition disabled:opacity-50 disabled:pointer-events-none
-        ${success && 'bg-green-600'}`}
+        ${success ? 'bg-green-600' : ''}`}
             type='submit'
             disabled={isSubmitting || success}
           >Submit
