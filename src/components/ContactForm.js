@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Formik, Form} from 'formik'
 import * as Yup from 'yup'
 import TextInput from './TextInput'
+import Spinner from './Spinner'
 
 const ContactForm = () => {
   const [success, setSuccess] = useState(false)
@@ -31,7 +32,6 @@ const ContactForm = () => {
 
         let response, data
 
-        console.log('sent values:', values)
         try {
           response = await fetch(`${process.env.DJANGO_URL}/api/submit-inquiry/`, {
             method: 'POST',
@@ -57,29 +57,37 @@ const ContactForm = () => {
         }
       }}
     >
-      {({isSubmitting}) => (
-        <Form>
-          <TextInput variant='input' id='name' label='Name' name='name' type='text'/>
-          <TextInput variant='input' id='email' label='Email' name='email' type='email'/>
-          <TextInput variant='textarea' id='message' label='Message' name='message'/>
+      {({isSubmitting}) => {
 
-          {/* TODO: Develop this button a bit further. There might be some accessibility concerns about */}
-          {/*  simply lowering opacity and setting pointer events to none when the button is disabled. */}
+        let buttonText
 
-          <button
-            className={`mt-0.5 bg-gray-500 text-white py-3 px-5 rounded-lg font-bold shadow
-        focus:ring focus:ring-gray-300 hover:bg-gray-600 transition disabled:opacity-50 disabled:pointer-events-none
-        ${success ? 'bg-green-600' : ''}`}
-            type='submit'
-            disabled={isSubmitting || success}
-          >Submit
-          </button>
-          {success && <div className='text-green-600 text-sm pt-2 absolute'>
-            Thanks for contacting me! I'll get back to you as soon as possible{' '}
-            <span role='img' aria-label='grinning face with smiling eyes emoji'>😄</span>
-          </div>}
-        </Form>
-      )}
+        if (isSubmitting) {
+          buttonText = <Spinner className='mx-5'/>
+        } else {
+          buttonText = success ? 'Thanks!' : 'Submit'
+        }
+
+        return (
+          <Form>
+            <TextInput variant='input' id='name' label='Name' name='name' type='text'/>
+            <TextInput variant='input' id='email' label='Email' name='email' type='email'/>
+            <TextInput variant='textarea' id='message' label='Message' name='message'/>
+
+            <button
+              className={`btn btn-gray ${success ? 'btn-success' : ''}`}
+              type='submit'
+              disabled={isSubmitting || success}
+              style={{minWidth: '10ch'}}
+            >
+              {buttonText}
+            </button>
+            {success && <div className='text-green-600 text-sm pt-2 absolute'>
+              Thanks for contacting me! I'll get back to you as soon as possible{' '}
+              <span role='img' aria-label='grinning face with smiling eyes emoji'>😄</span>
+            </div>}
+          </Form>
+        )
+      }}
     </Formik>
   )
 }

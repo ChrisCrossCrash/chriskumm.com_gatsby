@@ -7,6 +7,8 @@ const PortfolioSite = ({project}) => (
 
     {/* Mockup */}
     <div className='h-full w-full' style={{flex: '1 1 0px'}}>
+      {/* TODO: Add some ratio boxes here */}
+      {/*  https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions */}
       <Img
         className='w-full h-full object-contain rounded-2xl'
         fluid={project.screenshot.childImageSharp.fluid}

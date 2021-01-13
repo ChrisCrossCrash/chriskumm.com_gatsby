@@ -34,7 +34,6 @@ module.exports = {
       flexDirection: ['odd'],
       textColor: ['visited'],
       opacity: ['disabled'],
-      pointerEvents: ['disabled'],
     },
   },
   plugins: [
