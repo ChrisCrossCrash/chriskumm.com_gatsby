@@ -74,7 +74,7 @@ const ContactForm = () => {
             <TextInput variant='textarea' id='message' label='Message' name='message'/>
 
             <button
-              className={`btn btn-gray ${success ? 'btn-success' : ''}`}
+              className={`submit-btn submit-btn-gray ${success ? 'submit-btn-success' : ''}`}
               type='submit'
               disabled={isSubmitting || success}
               style={{minWidth: '10ch'}}
