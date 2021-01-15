@@ -27,7 +27,9 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    gsap.from(pageRef.current, {opacity: 0})
+    if (pageLoaded) {
+      gsap.from(pageRef.current, {opacity: 0})
+    }
   }, [pageLoaded])
 
   if (pageLoaded) {

@@ -28,7 +28,7 @@ const Hero = () => {
       opacity: 0,
       duration: 1,
     })
-  })
+  }, [])
 
   // noinspection HtmlUnknownAnchorTarget
   return (

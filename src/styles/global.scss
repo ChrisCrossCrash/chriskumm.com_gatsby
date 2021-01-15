@@ -229,6 +229,8 @@ html {
   }
 
   // On devices that don't support hover, always show the 'hovered' style.
+  // TODO: On Rasberry Pi, it always showed the hovered style.
+  //  Also, it didn't show the hovered style on my tablet. Investigate.
   @media (hover: none) {
     & {
       .circle {
