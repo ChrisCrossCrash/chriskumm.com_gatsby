@@ -193,8 +193,6 @@ type File implements Node {
   childPortfolioYaml: PortfolioYaml
   "Returns the first child node of type SiteConfigYaml or null if there are no children of given type on this node"
   childSiteConfigYaml: SiteConfigYaml
-  "Returns the first child node of type SkillsYaml or null if there are no children of given type on this node"
-  childSkillsYaml: SkillsYaml
   children: [Node!]!
   "Returns all children nodes filtered by type ImageSharp"
   childrenImageSharp: [ImageSharp]
@@ -202,8 +200,6 @@ type File implements Node {
   childrenPortfolioYaml: [PortfolioYaml]
   "Returns all children nodes filtered by type SiteConfigYaml"
   childrenSiteConfigYaml: [SiteConfigYaml]
-  "Returns all children nodes filtered by type SkillsYaml"
-  childrenSkillsYaml: [SkillsYaml]
   ctime(
     "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
     difference: String,
@@ -588,9 +584,8 @@ type Query {
   allSiteConfigYaml(filter: SiteConfigYamlFilterInput, limit: Int, skip: Int, sort: SiteConfigYamlSortInput): SiteConfigYamlConnection!
   allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: SitePageSortInput): SitePageConnection!
   allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
-  allSkillsYaml(filter: SkillsYamlFilterInput, limit: Int, skip: Int, sort: SkillsYamlSortInput): SkillsYamlConnection!
   directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
-  file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childPortfolioYaml: PortfolioYamlFilterInput, childSiteConfigYaml: SiteConfigYamlFilterInput, childSkillsYaml: SkillsYamlFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenPortfolioYaml: PortfolioYamlFilterListInput, childrenSiteConfigYaml: SiteConfigYamlFilterListInput, childrenSkillsYaml: SkillsYamlFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
+  file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childPortfolioYaml: PortfolioYamlFilterInput, childSiteConfigYaml: SiteConfigYamlFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenPortfolioYaml: PortfolioYamlFilterListInput, childrenSiteConfigYaml: SiteConfigYamlFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
   imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput, resolutions: ImageSharpResolutionsFilterInput, sizes: ImageSharpSizesFilterInput): ImageSharp
   portfolioYaml(children: NodeFilterListInput, description: StringQueryOperatorInput, features: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, screenshot: FileFilterInput, subtitle: StringQueryOperatorInput, technologies: StringQueryOperatorInput, title: StringQueryOperatorInput, url: StringQueryOperatorInput): PortfolioYaml
   site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
@@ -598,7 +593,6 @@ type Query {
   siteConfigYaml(author: StringQueryOperatorInput, cardImage: FileFilterInput, children: NodeFilterListInput, description: StringQueryOperatorInput, favicon: FileFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, lang: StringQueryOperatorInput, maskableIcon: FileFilterInput, parent: NodeFilterInput, title: StringQueryOperatorInput): SiteConfigYaml
   sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
   sitePlugin(browserAPIs: StringQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
-  skillsYaml(children: NodeFilterListInput, id: StringQueryOperatorInput, image: FileFilterInput, internal: InternalFilterInput, items: StringQueryOperatorInput, parent: NodeFilterInput, title: StringQueryOperatorInput): SkillsYaml
 }
 
 type Site implements Node {
@@ -878,40 +872,6 @@ type SiteSiteMetadata {
   description: String
   siteUrl: String
   title: String
-}
-
-type SkillsYaml implements Node {
-  children: [Node!]!
-  id: ID!
-  image: File
-  internal: Internal!
-  items: [String]
-  parent: Node
-  title: String
-}
-
-type SkillsYamlConnection {
-  distinct(field: SkillsYamlFieldsEnum!): [String!]!
-  edges: [SkillsYamlEdge!]!
-  group(field: SkillsYamlFieldsEnum!, limit: Int, skip: Int): [SkillsYamlGroupConnection!]!
-  nodes: [SkillsYaml!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
-}
-
-type SkillsYamlEdge {
-  next: SkillsYaml
-  node: SkillsYaml!
-  previous: SkillsYaml
-}
-
-type SkillsYamlGroupConnection {
-  edges: [SkillsYamlEdge!]!
-  field: String!
-  fieldValue: String
-  nodes: [SkillsYaml!]!
-  pageInfo: PageInfo!
-  totalCount: Int!
 }
 
 enum DirectoryFieldsEnum {
@@ -1208,10 +1168,6 @@ enum FileFieldsEnum {
   childPortfolioYaml___screenshot___childSiteConfigYaml___id
   childPortfolioYaml___screenshot___childSiteConfigYaml___lang
   childPortfolioYaml___screenshot___childSiteConfigYaml___title
-  childPortfolioYaml___screenshot___childSkillsYaml___children
-  childPortfolioYaml___screenshot___childSkillsYaml___id
-  childPortfolioYaml___screenshot___childSkillsYaml___items
-  childPortfolioYaml___screenshot___childSkillsYaml___title
   childPortfolioYaml___screenshot___children
   childPortfolioYaml___screenshot___childrenImageSharp
   childPortfolioYaml___screenshot___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1233,11 +1189,6 @@ enum FileFieldsEnum {
   childPortfolioYaml___screenshot___childrenSiteConfigYaml___id
   childPortfolioYaml___screenshot___childrenSiteConfigYaml___lang
   childPortfolioYaml___screenshot___childrenSiteConfigYaml___title
-  childPortfolioYaml___screenshot___childrenSkillsYaml
-  childPortfolioYaml___screenshot___childrenSkillsYaml___children
-  childPortfolioYaml___screenshot___childrenSkillsYaml___id
-  childPortfolioYaml___screenshot___childrenSkillsYaml___items
-  childPortfolioYaml___screenshot___childrenSkillsYaml___title
   childPortfolioYaml___screenshot___children___children
   childPortfolioYaml___screenshot___children___id
   childPortfolioYaml___screenshot___ctime
@@ -1307,10 +1258,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___cardImage___childSiteConfigYaml___id
   childSiteConfigYaml___cardImage___childSiteConfigYaml___lang
   childSiteConfigYaml___cardImage___childSiteConfigYaml___title
-  childSiteConfigYaml___cardImage___childSkillsYaml___children
-  childSiteConfigYaml___cardImage___childSkillsYaml___id
-  childSiteConfigYaml___cardImage___childSkillsYaml___items
-  childSiteConfigYaml___cardImage___childSkillsYaml___title
   childSiteConfigYaml___cardImage___children
   childSiteConfigYaml___cardImage___childrenImageSharp
   childSiteConfigYaml___cardImage___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1332,11 +1279,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___cardImage___childrenSiteConfigYaml___id
   childSiteConfigYaml___cardImage___childrenSiteConfigYaml___lang
   childSiteConfigYaml___cardImage___childrenSiteConfigYaml___title
-  childSiteConfigYaml___cardImage___childrenSkillsYaml
-  childSiteConfigYaml___cardImage___childrenSkillsYaml___children
-  childSiteConfigYaml___cardImage___childrenSkillsYaml___id
-  childSiteConfigYaml___cardImage___childrenSkillsYaml___items
-  childSiteConfigYaml___cardImage___childrenSkillsYaml___title
   childSiteConfigYaml___cardImage___children___children
   childSiteConfigYaml___cardImage___children___id
   childSiteConfigYaml___cardImage___ctime
@@ -1417,10 +1359,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___favicon___childSiteConfigYaml___id
   childSiteConfigYaml___favicon___childSiteConfigYaml___lang
   childSiteConfigYaml___favicon___childSiteConfigYaml___title
-  childSiteConfigYaml___favicon___childSkillsYaml___children
-  childSiteConfigYaml___favicon___childSkillsYaml___id
-  childSiteConfigYaml___favicon___childSkillsYaml___items
-  childSiteConfigYaml___favicon___childSkillsYaml___title
   childSiteConfigYaml___favicon___children
   childSiteConfigYaml___favicon___childrenImageSharp
   childSiteConfigYaml___favicon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1442,11 +1380,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___favicon___childrenSiteConfigYaml___id
   childSiteConfigYaml___favicon___childrenSiteConfigYaml___lang
   childSiteConfigYaml___favicon___childrenSiteConfigYaml___title
-  childSiteConfigYaml___favicon___childrenSkillsYaml
-  childSiteConfigYaml___favicon___childrenSkillsYaml___children
-  childSiteConfigYaml___favicon___childrenSkillsYaml___id
-  childSiteConfigYaml___favicon___childrenSkillsYaml___items
-  childSiteConfigYaml___favicon___childrenSkillsYaml___title
   childSiteConfigYaml___favicon___children___children
   childSiteConfigYaml___favicon___children___id
   childSiteConfigYaml___favicon___ctime
@@ -1521,10 +1454,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___maskableIcon___childSiteConfigYaml___id
   childSiteConfigYaml___maskableIcon___childSiteConfigYaml___lang
   childSiteConfigYaml___maskableIcon___childSiteConfigYaml___title
-  childSiteConfigYaml___maskableIcon___childSkillsYaml___children
-  childSiteConfigYaml___maskableIcon___childSkillsYaml___id
-  childSiteConfigYaml___maskableIcon___childSkillsYaml___items
-  childSiteConfigYaml___maskableIcon___childSkillsYaml___title
   childSiteConfigYaml___maskableIcon___children
   childSiteConfigYaml___maskableIcon___childrenImageSharp
   childSiteConfigYaml___maskableIcon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1546,11 +1475,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___id
   childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___lang
   childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___title
-  childSiteConfigYaml___maskableIcon___childrenSkillsYaml
-  childSiteConfigYaml___maskableIcon___childrenSkillsYaml___children
-  childSiteConfigYaml___maskableIcon___childrenSkillsYaml___id
-  childSiteConfigYaml___maskableIcon___childrenSkillsYaml___items
-  childSiteConfigYaml___maskableIcon___childrenSkillsYaml___title
   childSiteConfigYaml___maskableIcon___children___children
   childSiteConfigYaml___maskableIcon___children___id
   childSiteConfigYaml___maskableIcon___ctime
@@ -1602,140 +1526,6 @@ enum FileFieldsEnum {
   childSiteConfigYaml___parent___parent___children
   childSiteConfigYaml___parent___parent___id
   childSiteConfigYaml___title
-  childSkillsYaml___children
-  childSkillsYaml___children___children
-  childSkillsYaml___children___children___children
-  childSkillsYaml___children___children___id
-  childSkillsYaml___children___id
-  childSkillsYaml___children___internal___content
-  childSkillsYaml___children___internal___contentDigest
-  childSkillsYaml___children___internal___description
-  childSkillsYaml___children___internal___fieldOwners
-  childSkillsYaml___children___internal___ignoreType
-  childSkillsYaml___children___internal___mediaType
-  childSkillsYaml___children___internal___owner
-  childSkillsYaml___children___internal___type
-  childSkillsYaml___children___parent___children
-  childSkillsYaml___children___parent___id
-  childSkillsYaml___id
-  childSkillsYaml___image___absolutePath
-  childSkillsYaml___image___accessTime
-  childSkillsYaml___image___atime
-  childSkillsYaml___image___atimeMs
-  childSkillsYaml___image___base
-  childSkillsYaml___image___birthTime
-  childSkillsYaml___image___birthtime
-  childSkillsYaml___image___birthtimeMs
-  childSkillsYaml___image___blksize
-  childSkillsYaml___image___blocks
-  childSkillsYaml___image___changeTime
-  childSkillsYaml___image___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childPortfolioYaml___children
-  childSkillsYaml___image___childPortfolioYaml___description
-  childSkillsYaml___image___childPortfolioYaml___features
-  childSkillsYaml___image___childPortfolioYaml___id
-  childSkillsYaml___image___childPortfolioYaml___subtitle
-  childSkillsYaml___image___childPortfolioYaml___technologies
-  childSkillsYaml___image___childPortfolioYaml___title
-  childSkillsYaml___image___childPortfolioYaml___url
-  childSkillsYaml___image___childSiteConfigYaml___author
-  childSkillsYaml___image___childSiteConfigYaml___children
-  childSkillsYaml___image___childSiteConfigYaml___description
-  childSkillsYaml___image___childSiteConfigYaml___id
-  childSkillsYaml___image___childSiteConfigYaml___lang
-  childSkillsYaml___image___childSiteConfigYaml___title
-  childSkillsYaml___image___childSkillsYaml___children
-  childSkillsYaml___image___childSkillsYaml___id
-  childSkillsYaml___image___childSkillsYaml___items
-  childSkillsYaml___image___childSkillsYaml___title
-  childSkillsYaml___image___children
-  childSkillsYaml___image___childrenImageSharp
-  childSkillsYaml___image___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childrenImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childrenImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childSkillsYaml___image___childrenPortfolioYaml
-  childSkillsYaml___image___childrenPortfolioYaml___children
-  childSkillsYaml___image___childrenPortfolioYaml___description
-  childSkillsYaml___image___childrenPortfolioYaml___features
-  childSkillsYaml___image___childrenPortfolioYaml___id
-  childSkillsYaml___image___childrenPortfolioYaml___subtitle
-  childSkillsYaml___image___childrenPortfolioYaml___technologies
-  childSkillsYaml___image___childrenPortfolioYaml___title
-  childSkillsYaml___image___childrenPortfolioYaml___url
-  childSkillsYaml___image___childrenSiteConfigYaml
-  childSkillsYaml___image___childrenSiteConfigYaml___author
-  childSkillsYaml___image___childrenSiteConfigYaml___children
-  childSkillsYaml___image___childrenSiteConfigYaml___description
-  childSkillsYaml___image___childrenSiteConfigYaml___id
-  childSkillsYaml___image___childrenSiteConfigYaml___lang
-  childSkillsYaml___image___childrenSiteConfigYaml___title
-  childSkillsYaml___image___childrenSkillsYaml
-  childSkillsYaml___image___childrenSkillsYaml___children
-  childSkillsYaml___image___childrenSkillsYaml___id
-  childSkillsYaml___image___childrenSkillsYaml___items
-  childSkillsYaml___image___childrenSkillsYaml___title
-  childSkillsYaml___image___children___children
-  childSkillsYaml___image___children___id
-  childSkillsYaml___image___ctime
-  childSkillsYaml___image___ctimeMs
-  childSkillsYaml___image___dev
-  childSkillsYaml___image___dir
-  childSkillsYaml___image___ext
-  childSkillsYaml___image___extension
-  childSkillsYaml___image___gid
-  childSkillsYaml___image___id
-  childSkillsYaml___image___ino
-  childSkillsYaml___image___internal___content
-  childSkillsYaml___image___internal___contentDigest
-  childSkillsYaml___image___internal___description
-  childSkillsYaml___image___internal___fieldOwners
-  childSkillsYaml___image___internal___ignoreType
-  childSkillsYaml___image___internal___mediaType
-  childSkillsYaml___image___internal___owner
-  childSkillsYaml___image___internal___type
-  childSkillsYaml___image___mode
-  childSkillsYaml___image___modifiedTime
-  childSkillsYaml___image___mtime
-  childSkillsYaml___image___mtimeMs
-  childSkillsYaml___image___name
-  childSkillsYaml___image___nlink
-  childSkillsYaml___image___parent___children
-  childSkillsYaml___image___parent___id
-  childSkillsYaml___image___prettySize
-  childSkillsYaml___image___publicURL
-  childSkillsYaml___image___rdev
-  childSkillsYaml___image___relativeDirectory
-  childSkillsYaml___image___relativePath
-  childSkillsYaml___image___root
-  childSkillsYaml___image___size
-  childSkillsYaml___image___sourceInstanceName
-  childSkillsYaml___image___uid
-  childSkillsYaml___internal___content
-  childSkillsYaml___internal___contentDigest
-  childSkillsYaml___internal___description
-  childSkillsYaml___internal___fieldOwners
-  childSkillsYaml___internal___ignoreType
-  childSkillsYaml___internal___mediaType
-  childSkillsYaml___internal___owner
-  childSkillsYaml___internal___type
-  childSkillsYaml___items
-  childSkillsYaml___parent___children
-  childSkillsYaml___parent___children___children
-  childSkillsYaml___parent___children___id
-  childSkillsYaml___parent___id
-  childSkillsYaml___parent___internal___content
-  childSkillsYaml___parent___internal___contentDigest
-  childSkillsYaml___parent___internal___description
-  childSkillsYaml___parent___internal___fieldOwners
-  childSkillsYaml___parent___internal___ignoreType
-  childSkillsYaml___parent___internal___mediaType
-  childSkillsYaml___parent___internal___owner
-  childSkillsYaml___parent___internal___type
-  childSkillsYaml___parent___parent___children
-  childSkillsYaml___parent___parent___id
-  childSkillsYaml___title
   children
   childrenImageSharp
   childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1899,10 +1689,6 @@ enum FileFieldsEnum {
   childrenPortfolioYaml___screenshot___childSiteConfigYaml___id
   childrenPortfolioYaml___screenshot___childSiteConfigYaml___lang
   childrenPortfolioYaml___screenshot___childSiteConfigYaml___title
-  childrenPortfolioYaml___screenshot___childSkillsYaml___children
-  childrenPortfolioYaml___screenshot___childSkillsYaml___id
-  childrenPortfolioYaml___screenshot___childSkillsYaml___items
-  childrenPortfolioYaml___screenshot___childSkillsYaml___title
   childrenPortfolioYaml___screenshot___children
   childrenPortfolioYaml___screenshot___childrenImageSharp
   childrenPortfolioYaml___screenshot___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1924,11 +1710,6 @@ enum FileFieldsEnum {
   childrenPortfolioYaml___screenshot___childrenSiteConfigYaml___id
   childrenPortfolioYaml___screenshot___childrenSiteConfigYaml___lang
   childrenPortfolioYaml___screenshot___childrenSiteConfigYaml___title
-  childrenPortfolioYaml___screenshot___childrenSkillsYaml
-  childrenPortfolioYaml___screenshot___childrenSkillsYaml___children
-  childrenPortfolioYaml___screenshot___childrenSkillsYaml___id
-  childrenPortfolioYaml___screenshot___childrenSkillsYaml___items
-  childrenPortfolioYaml___screenshot___childrenSkillsYaml___title
   childrenPortfolioYaml___screenshot___children___children
   childrenPortfolioYaml___screenshot___children___id
   childrenPortfolioYaml___screenshot___ctime
@@ -1999,10 +1780,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___cardImage___childSiteConfigYaml___id
   childrenSiteConfigYaml___cardImage___childSiteConfigYaml___lang
   childrenSiteConfigYaml___cardImage___childSiteConfigYaml___title
-  childrenSiteConfigYaml___cardImage___childSkillsYaml___children
-  childrenSiteConfigYaml___cardImage___childSkillsYaml___id
-  childrenSiteConfigYaml___cardImage___childSkillsYaml___items
-  childrenSiteConfigYaml___cardImage___childSkillsYaml___title
   childrenSiteConfigYaml___cardImage___children
   childrenSiteConfigYaml___cardImage___childrenImageSharp
   childrenSiteConfigYaml___cardImage___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2024,11 +1801,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml___id
   childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml___lang
   childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml___title
-  childrenSiteConfigYaml___cardImage___childrenSkillsYaml
-  childrenSiteConfigYaml___cardImage___childrenSkillsYaml___children
-  childrenSiteConfigYaml___cardImage___childrenSkillsYaml___id
-  childrenSiteConfigYaml___cardImage___childrenSkillsYaml___items
-  childrenSiteConfigYaml___cardImage___childrenSkillsYaml___title
   childrenSiteConfigYaml___cardImage___children___children
   childrenSiteConfigYaml___cardImage___children___id
   childrenSiteConfigYaml___cardImage___ctime
@@ -2109,10 +1881,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___favicon___childSiteConfigYaml___id
   childrenSiteConfigYaml___favicon___childSiteConfigYaml___lang
   childrenSiteConfigYaml___favicon___childSiteConfigYaml___title
-  childrenSiteConfigYaml___favicon___childSkillsYaml___children
-  childrenSiteConfigYaml___favicon___childSkillsYaml___id
-  childrenSiteConfigYaml___favicon___childSkillsYaml___items
-  childrenSiteConfigYaml___favicon___childSkillsYaml___title
   childrenSiteConfigYaml___favicon___children
   childrenSiteConfigYaml___favicon___childrenImageSharp
   childrenSiteConfigYaml___favicon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2134,11 +1902,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___favicon___childrenSiteConfigYaml___id
   childrenSiteConfigYaml___favicon___childrenSiteConfigYaml___lang
   childrenSiteConfigYaml___favicon___childrenSiteConfigYaml___title
-  childrenSiteConfigYaml___favicon___childrenSkillsYaml
-  childrenSiteConfigYaml___favicon___childrenSkillsYaml___children
-  childrenSiteConfigYaml___favicon___childrenSkillsYaml___id
-  childrenSiteConfigYaml___favicon___childrenSkillsYaml___items
-  childrenSiteConfigYaml___favicon___childrenSkillsYaml___title
   childrenSiteConfigYaml___favicon___children___children
   childrenSiteConfigYaml___favicon___children___id
   childrenSiteConfigYaml___favicon___ctime
@@ -2213,10 +1976,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___maskableIcon___childSiteConfigYaml___id
   childrenSiteConfigYaml___maskableIcon___childSiteConfigYaml___lang
   childrenSiteConfigYaml___maskableIcon___childSiteConfigYaml___title
-  childrenSiteConfigYaml___maskableIcon___childSkillsYaml___children
-  childrenSiteConfigYaml___maskableIcon___childSkillsYaml___id
-  childrenSiteConfigYaml___maskableIcon___childSkillsYaml___items
-  childrenSiteConfigYaml___maskableIcon___childSkillsYaml___title
   childrenSiteConfigYaml___maskableIcon___children
   childrenSiteConfigYaml___maskableIcon___childrenImageSharp
   childrenSiteConfigYaml___maskableIcon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2238,11 +1997,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___id
   childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___lang
   childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml___title
-  childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
-  childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml___children
-  childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml___id
-  childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml___items
-  childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml___title
   childrenSiteConfigYaml___maskableIcon___children___children
   childrenSiteConfigYaml___maskableIcon___children___id
   childrenSiteConfigYaml___maskableIcon___ctime
@@ -2294,141 +2048,6 @@ enum FileFieldsEnum {
   childrenSiteConfigYaml___parent___parent___children
   childrenSiteConfigYaml___parent___parent___id
   childrenSiteConfigYaml___title
-  childrenSkillsYaml
-  childrenSkillsYaml___children
-  childrenSkillsYaml___children___children
-  childrenSkillsYaml___children___children___children
-  childrenSkillsYaml___children___children___id
-  childrenSkillsYaml___children___id
-  childrenSkillsYaml___children___internal___content
-  childrenSkillsYaml___children___internal___contentDigest
-  childrenSkillsYaml___children___internal___description
-  childrenSkillsYaml___children___internal___fieldOwners
-  childrenSkillsYaml___children___internal___ignoreType
-  childrenSkillsYaml___children___internal___mediaType
-  childrenSkillsYaml___children___internal___owner
-  childrenSkillsYaml___children___internal___type
-  childrenSkillsYaml___children___parent___children
-  childrenSkillsYaml___children___parent___id
-  childrenSkillsYaml___id
-  childrenSkillsYaml___image___absolutePath
-  childrenSkillsYaml___image___accessTime
-  childrenSkillsYaml___image___atime
-  childrenSkillsYaml___image___atimeMs
-  childrenSkillsYaml___image___base
-  childrenSkillsYaml___image___birthTime
-  childrenSkillsYaml___image___birthtime
-  childrenSkillsYaml___image___birthtimeMs
-  childrenSkillsYaml___image___blksize
-  childrenSkillsYaml___image___blocks
-  childrenSkillsYaml___image___changeTime
-  childrenSkillsYaml___image___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childPortfolioYaml___children
-  childrenSkillsYaml___image___childPortfolioYaml___description
-  childrenSkillsYaml___image___childPortfolioYaml___features
-  childrenSkillsYaml___image___childPortfolioYaml___id
-  childrenSkillsYaml___image___childPortfolioYaml___subtitle
-  childrenSkillsYaml___image___childPortfolioYaml___technologies
-  childrenSkillsYaml___image___childPortfolioYaml___title
-  childrenSkillsYaml___image___childPortfolioYaml___url
-  childrenSkillsYaml___image___childSiteConfigYaml___author
-  childrenSkillsYaml___image___childSiteConfigYaml___children
-  childrenSkillsYaml___image___childSiteConfigYaml___description
-  childrenSkillsYaml___image___childSiteConfigYaml___id
-  childrenSkillsYaml___image___childSiteConfigYaml___lang
-  childrenSkillsYaml___image___childSiteConfigYaml___title
-  childrenSkillsYaml___image___childSkillsYaml___children
-  childrenSkillsYaml___image___childSkillsYaml___id
-  childrenSkillsYaml___image___childSkillsYaml___items
-  childrenSkillsYaml___image___childSkillsYaml___title
-  childrenSkillsYaml___image___children
-  childrenSkillsYaml___image___childrenImageSharp
-  childrenSkillsYaml___image___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childrenImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childrenImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenSkillsYaml___image___childrenPortfolioYaml
-  childrenSkillsYaml___image___childrenPortfolioYaml___children
-  childrenSkillsYaml___image___childrenPortfolioYaml___description
-  childrenSkillsYaml___image___childrenPortfolioYaml___features
-  childrenSkillsYaml___image___childrenPortfolioYaml___id
-  childrenSkillsYaml___image___childrenPortfolioYaml___subtitle
-  childrenSkillsYaml___image___childrenPortfolioYaml___technologies
-  childrenSkillsYaml___image___childrenPortfolioYaml___title
-  childrenSkillsYaml___image___childrenPortfolioYaml___url
-  childrenSkillsYaml___image___childrenSiteConfigYaml
-  childrenSkillsYaml___image___childrenSiteConfigYaml___author
-  childrenSkillsYaml___image___childrenSiteConfigYaml___children
-  childrenSkillsYaml___image___childrenSiteConfigYaml___description
-  childrenSkillsYaml___image___childrenSiteConfigYaml___id
-  childrenSkillsYaml___image___childrenSiteConfigYaml___lang
-  childrenSkillsYaml___image___childrenSiteConfigYaml___title
-  childrenSkillsYaml___image___childrenSkillsYaml
-  childrenSkillsYaml___image___childrenSkillsYaml___children
-  childrenSkillsYaml___image___childrenSkillsYaml___id
-  childrenSkillsYaml___image___childrenSkillsYaml___items
-  childrenSkillsYaml___image___childrenSkillsYaml___title
-  childrenSkillsYaml___image___children___children
-  childrenSkillsYaml___image___children___id
-  childrenSkillsYaml___image___ctime
-  childrenSkillsYaml___image___ctimeMs
-  childrenSkillsYaml___image___dev
-  childrenSkillsYaml___image___dir
-  childrenSkillsYaml___image___ext
-  childrenSkillsYaml___image___extension
-  childrenSkillsYaml___image___gid
-  childrenSkillsYaml___image___id
-  childrenSkillsYaml___image___ino
-  childrenSkillsYaml___image___internal___content
-  childrenSkillsYaml___image___internal___contentDigest
-  childrenSkillsYaml___image___internal___description
-  childrenSkillsYaml___image___internal___fieldOwners
-  childrenSkillsYaml___image___internal___ignoreType
-  childrenSkillsYaml___image___internal___mediaType
-  childrenSkillsYaml___image___internal___owner
-  childrenSkillsYaml___image___internal___type
-  childrenSkillsYaml___image___mode
-  childrenSkillsYaml___image___modifiedTime
-  childrenSkillsYaml___image___mtime
-  childrenSkillsYaml___image___mtimeMs
-  childrenSkillsYaml___image___name
-  childrenSkillsYaml___image___nlink
-  childrenSkillsYaml___image___parent___children
-  childrenSkillsYaml___image___parent___id
-  childrenSkillsYaml___image___prettySize
-  childrenSkillsYaml___image___publicURL
-  childrenSkillsYaml___image___rdev
-  childrenSkillsYaml___image___relativeDirectory
-  childrenSkillsYaml___image___relativePath
-  childrenSkillsYaml___image___root
-  childrenSkillsYaml___image___size
-  childrenSkillsYaml___image___sourceInstanceName
-  childrenSkillsYaml___image___uid
-  childrenSkillsYaml___internal___content
-  childrenSkillsYaml___internal___contentDigest
-  childrenSkillsYaml___internal___description
-  childrenSkillsYaml___internal___fieldOwners
-  childrenSkillsYaml___internal___ignoreType
-  childrenSkillsYaml___internal___mediaType
-  childrenSkillsYaml___internal___owner
-  childrenSkillsYaml___internal___type
-  childrenSkillsYaml___items
-  childrenSkillsYaml___parent___children
-  childrenSkillsYaml___parent___children___children
-  childrenSkillsYaml___parent___children___id
-  childrenSkillsYaml___parent___id
-  childrenSkillsYaml___parent___internal___content
-  childrenSkillsYaml___parent___internal___contentDigest
-  childrenSkillsYaml___parent___internal___description
-  childrenSkillsYaml___parent___internal___fieldOwners
-  childrenSkillsYaml___parent___internal___ignoreType
-  childrenSkillsYaml___parent___internal___mediaType
-  childrenSkillsYaml___parent___internal___owner
-  childrenSkillsYaml___parent___internal___type
-  childrenSkillsYaml___parent___parent___children
-  childrenSkillsYaml___parent___parent___id
-  childrenSkillsYaml___title
   children___children
   children___children___children
   children___children___children___children
@@ -2925,7 +2544,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childPortfolioYaml___screenshot___childrenImageSharp
   screenshot___childPortfolioYaml___screenshot___childrenPortfolioYaml
   screenshot___childPortfolioYaml___screenshot___childrenSiteConfigYaml
-  screenshot___childPortfolioYaml___screenshot___childrenSkillsYaml
   screenshot___childPortfolioYaml___screenshot___ctime
   screenshot___childPortfolioYaml___screenshot___ctimeMs
   screenshot___childPortfolioYaml___screenshot___dev
@@ -2970,7 +2588,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childSiteConfigYaml___cardImage___childrenImageSharp
   screenshot___childSiteConfigYaml___cardImage___childrenPortfolioYaml
   screenshot___childSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  screenshot___childSiteConfigYaml___cardImage___childrenSkillsYaml
   screenshot___childSiteConfigYaml___cardImage___ctime
   screenshot___childSiteConfigYaml___cardImage___ctimeMs
   screenshot___childSiteConfigYaml___cardImage___dev
@@ -3014,7 +2631,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childSiteConfigYaml___favicon___childrenImageSharp
   screenshot___childSiteConfigYaml___favicon___childrenPortfolioYaml
   screenshot___childSiteConfigYaml___favicon___childrenSiteConfigYaml
-  screenshot___childSiteConfigYaml___favicon___childrenSkillsYaml
   screenshot___childSiteConfigYaml___favicon___ctime
   screenshot___childSiteConfigYaml___favicon___ctimeMs
   screenshot___childSiteConfigYaml___favicon___dev
@@ -3064,7 +2680,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childSiteConfigYaml___maskableIcon___childrenImageSharp
   screenshot___childSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   screenshot___childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  screenshot___childSiteConfigYaml___maskableIcon___childrenSkillsYaml
   screenshot___childSiteConfigYaml___maskableIcon___ctime
   screenshot___childSiteConfigYaml___maskableIcon___ctimeMs
   screenshot___childSiteConfigYaml___maskableIcon___dev
@@ -3092,62 +2707,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childSiteConfigYaml___parent___children
   screenshot___childSiteConfigYaml___parent___id
   screenshot___childSiteConfigYaml___title
-  screenshot___childSkillsYaml___children
-  screenshot___childSkillsYaml___children___children
-  screenshot___childSkillsYaml___children___id
-  screenshot___childSkillsYaml___id
-  screenshot___childSkillsYaml___image___absolutePath
-  screenshot___childSkillsYaml___image___accessTime
-  screenshot___childSkillsYaml___image___atime
-  screenshot___childSkillsYaml___image___atimeMs
-  screenshot___childSkillsYaml___image___base
-  screenshot___childSkillsYaml___image___birthTime
-  screenshot___childSkillsYaml___image___birthtime
-  screenshot___childSkillsYaml___image___birthtimeMs
-  screenshot___childSkillsYaml___image___blksize
-  screenshot___childSkillsYaml___image___blocks
-  screenshot___childSkillsYaml___image___changeTime
-  screenshot___childSkillsYaml___image___children
-  screenshot___childSkillsYaml___image___childrenImageSharp
-  screenshot___childSkillsYaml___image___childrenPortfolioYaml
-  screenshot___childSkillsYaml___image___childrenSiteConfigYaml
-  screenshot___childSkillsYaml___image___childrenSkillsYaml
-  screenshot___childSkillsYaml___image___ctime
-  screenshot___childSkillsYaml___image___ctimeMs
-  screenshot___childSkillsYaml___image___dev
-  screenshot___childSkillsYaml___image___dir
-  screenshot___childSkillsYaml___image___ext
-  screenshot___childSkillsYaml___image___extension
-  screenshot___childSkillsYaml___image___gid
-  screenshot___childSkillsYaml___image___id
-  screenshot___childSkillsYaml___image___ino
-  screenshot___childSkillsYaml___image___mode
-  screenshot___childSkillsYaml___image___modifiedTime
-  screenshot___childSkillsYaml___image___mtime
-  screenshot___childSkillsYaml___image___mtimeMs
-  screenshot___childSkillsYaml___image___name
-  screenshot___childSkillsYaml___image___nlink
-  screenshot___childSkillsYaml___image___prettySize
-  screenshot___childSkillsYaml___image___publicURL
-  screenshot___childSkillsYaml___image___rdev
-  screenshot___childSkillsYaml___image___relativeDirectory
-  screenshot___childSkillsYaml___image___relativePath
-  screenshot___childSkillsYaml___image___root
-  screenshot___childSkillsYaml___image___size
-  screenshot___childSkillsYaml___image___sourceInstanceName
-  screenshot___childSkillsYaml___image___uid
-  screenshot___childSkillsYaml___internal___content
-  screenshot___childSkillsYaml___internal___contentDigest
-  screenshot___childSkillsYaml___internal___description
-  screenshot___childSkillsYaml___internal___fieldOwners
-  screenshot___childSkillsYaml___internal___ignoreType
-  screenshot___childSkillsYaml___internal___mediaType
-  screenshot___childSkillsYaml___internal___owner
-  screenshot___childSkillsYaml___internal___type
-  screenshot___childSkillsYaml___items
-  screenshot___childSkillsYaml___parent___children
-  screenshot___childSkillsYaml___parent___id
-  screenshot___childSkillsYaml___title
   screenshot___children
   screenshot___childrenImageSharp
   screenshot___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3250,7 +2809,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childrenPortfolioYaml___screenshot___childrenImageSharp
   screenshot___childrenPortfolioYaml___screenshot___childrenPortfolioYaml
   screenshot___childrenPortfolioYaml___screenshot___childrenSiteConfigYaml
-  screenshot___childrenPortfolioYaml___screenshot___childrenSkillsYaml
   screenshot___childrenPortfolioYaml___screenshot___ctime
   screenshot___childrenPortfolioYaml___screenshot___ctimeMs
   screenshot___childrenPortfolioYaml___screenshot___dev
@@ -3296,7 +2854,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childrenSiteConfigYaml___cardImage___childrenImageSharp
   screenshot___childrenSiteConfigYaml___cardImage___childrenPortfolioYaml
   screenshot___childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  screenshot___childrenSiteConfigYaml___cardImage___childrenSkillsYaml
   screenshot___childrenSiteConfigYaml___cardImage___ctime
   screenshot___childrenSiteConfigYaml___cardImage___ctimeMs
   screenshot___childrenSiteConfigYaml___cardImage___dev
@@ -3340,7 +2897,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childrenSiteConfigYaml___favicon___childrenImageSharp
   screenshot___childrenSiteConfigYaml___favicon___childrenPortfolioYaml
   screenshot___childrenSiteConfigYaml___favicon___childrenSiteConfigYaml
-  screenshot___childrenSiteConfigYaml___favicon___childrenSkillsYaml
   screenshot___childrenSiteConfigYaml___favicon___ctime
   screenshot___childrenSiteConfigYaml___favicon___ctimeMs
   screenshot___childrenSiteConfigYaml___favicon___dev
@@ -3390,7 +2946,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childrenSiteConfigYaml___maskableIcon___childrenImageSharp
   screenshot___childrenSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   screenshot___childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  screenshot___childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
   screenshot___childrenSiteConfigYaml___maskableIcon___ctime
   screenshot___childrenSiteConfigYaml___maskableIcon___ctimeMs
   screenshot___childrenSiteConfigYaml___maskableIcon___dev
@@ -3418,63 +2973,6 @@ enum PortfolioYamlFieldsEnum {
   screenshot___childrenSiteConfigYaml___parent___children
   screenshot___childrenSiteConfigYaml___parent___id
   screenshot___childrenSiteConfigYaml___title
-  screenshot___childrenSkillsYaml
-  screenshot___childrenSkillsYaml___children
-  screenshot___childrenSkillsYaml___children___children
-  screenshot___childrenSkillsYaml___children___id
-  screenshot___childrenSkillsYaml___id
-  screenshot___childrenSkillsYaml___image___absolutePath
-  screenshot___childrenSkillsYaml___image___accessTime
-  screenshot___childrenSkillsYaml___image___atime
-  screenshot___childrenSkillsYaml___image___atimeMs
-  screenshot___childrenSkillsYaml___image___base
-  screenshot___childrenSkillsYaml___image___birthTime
-  screenshot___childrenSkillsYaml___image___birthtime
-  screenshot___childrenSkillsYaml___image___birthtimeMs
-  screenshot___childrenSkillsYaml___image___blksize
-  screenshot___childrenSkillsYaml___image___blocks
-  screenshot___childrenSkillsYaml___image___changeTime
-  screenshot___childrenSkillsYaml___image___children
-  screenshot___childrenSkillsYaml___image___childrenImageSharp
-  screenshot___childrenSkillsYaml___image___childrenPortfolioYaml
-  screenshot___childrenSkillsYaml___image___childrenSiteConfigYaml
-  screenshot___childrenSkillsYaml___image___childrenSkillsYaml
-  screenshot___childrenSkillsYaml___image___ctime
-  screenshot___childrenSkillsYaml___image___ctimeMs
-  screenshot___childrenSkillsYaml___image___dev
-  screenshot___childrenSkillsYaml___image___dir
-  screenshot___childrenSkillsYaml___image___ext
-  screenshot___childrenSkillsYaml___image___extension
-  screenshot___childrenSkillsYaml___image___gid
-  screenshot___childrenSkillsYaml___image___id
-  screenshot___childrenSkillsYaml___image___ino
-  screenshot___childrenSkillsYaml___image___mode
-  screenshot___childrenSkillsYaml___image___modifiedTime
-  screenshot___childrenSkillsYaml___image___mtime
-  screenshot___childrenSkillsYaml___image___mtimeMs
-  screenshot___childrenSkillsYaml___image___name
-  screenshot___childrenSkillsYaml___image___nlink
-  screenshot___childrenSkillsYaml___image___prettySize
-  screenshot___childrenSkillsYaml___image___publicURL
-  screenshot___childrenSkillsYaml___image___rdev
-  screenshot___childrenSkillsYaml___image___relativeDirectory
-  screenshot___childrenSkillsYaml___image___relativePath
-  screenshot___childrenSkillsYaml___image___root
-  screenshot___childrenSkillsYaml___image___size
-  screenshot___childrenSkillsYaml___image___sourceInstanceName
-  screenshot___childrenSkillsYaml___image___uid
-  screenshot___childrenSkillsYaml___internal___content
-  screenshot___childrenSkillsYaml___internal___contentDigest
-  screenshot___childrenSkillsYaml___internal___description
-  screenshot___childrenSkillsYaml___internal___fieldOwners
-  screenshot___childrenSkillsYaml___internal___ignoreType
-  screenshot___childrenSkillsYaml___internal___mediaType
-  screenshot___childrenSkillsYaml___internal___owner
-  screenshot___childrenSkillsYaml___internal___type
-  screenshot___childrenSkillsYaml___items
-  screenshot___childrenSkillsYaml___parent___children
-  screenshot___childrenSkillsYaml___parent___id
-  screenshot___childrenSkillsYaml___title
   screenshot___children___children
   screenshot___children___children___children
   screenshot___children___children___id
@@ -3752,7 +3250,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childPortfolioYaml___screenshot___childrenImageSharp
   cardImage___childPortfolioYaml___screenshot___childrenPortfolioYaml
   cardImage___childPortfolioYaml___screenshot___childrenSiteConfigYaml
-  cardImage___childPortfolioYaml___screenshot___childrenSkillsYaml
   cardImage___childPortfolioYaml___screenshot___ctime
   cardImage___childPortfolioYaml___screenshot___ctimeMs
   cardImage___childPortfolioYaml___screenshot___dev
@@ -3797,7 +3294,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childSiteConfigYaml___cardImage___childrenImageSharp
   cardImage___childSiteConfigYaml___cardImage___childrenPortfolioYaml
   cardImage___childSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  cardImage___childSiteConfigYaml___cardImage___childrenSkillsYaml
   cardImage___childSiteConfigYaml___cardImage___ctime
   cardImage___childSiteConfigYaml___cardImage___ctimeMs
   cardImage___childSiteConfigYaml___cardImage___dev
@@ -3841,7 +3337,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childSiteConfigYaml___favicon___childrenImageSharp
   cardImage___childSiteConfigYaml___favicon___childrenPortfolioYaml
   cardImage___childSiteConfigYaml___favicon___childrenSiteConfigYaml
-  cardImage___childSiteConfigYaml___favicon___childrenSkillsYaml
   cardImage___childSiteConfigYaml___favicon___ctime
   cardImage___childSiteConfigYaml___favicon___ctimeMs
   cardImage___childSiteConfigYaml___favicon___dev
@@ -3891,7 +3386,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childSiteConfigYaml___maskableIcon___childrenImageSharp
   cardImage___childSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   cardImage___childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  cardImage___childSiteConfigYaml___maskableIcon___childrenSkillsYaml
   cardImage___childSiteConfigYaml___maskableIcon___ctime
   cardImage___childSiteConfigYaml___maskableIcon___ctimeMs
   cardImage___childSiteConfigYaml___maskableIcon___dev
@@ -3919,62 +3413,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childSiteConfigYaml___parent___children
   cardImage___childSiteConfigYaml___parent___id
   cardImage___childSiteConfigYaml___title
-  cardImage___childSkillsYaml___children
-  cardImage___childSkillsYaml___children___children
-  cardImage___childSkillsYaml___children___id
-  cardImage___childSkillsYaml___id
-  cardImage___childSkillsYaml___image___absolutePath
-  cardImage___childSkillsYaml___image___accessTime
-  cardImage___childSkillsYaml___image___atime
-  cardImage___childSkillsYaml___image___atimeMs
-  cardImage___childSkillsYaml___image___base
-  cardImage___childSkillsYaml___image___birthTime
-  cardImage___childSkillsYaml___image___birthtime
-  cardImage___childSkillsYaml___image___birthtimeMs
-  cardImage___childSkillsYaml___image___blksize
-  cardImage___childSkillsYaml___image___blocks
-  cardImage___childSkillsYaml___image___changeTime
-  cardImage___childSkillsYaml___image___children
-  cardImage___childSkillsYaml___image___childrenImageSharp
-  cardImage___childSkillsYaml___image___childrenPortfolioYaml
-  cardImage___childSkillsYaml___image___childrenSiteConfigYaml
-  cardImage___childSkillsYaml___image___childrenSkillsYaml
-  cardImage___childSkillsYaml___image___ctime
-  cardImage___childSkillsYaml___image___ctimeMs
-  cardImage___childSkillsYaml___image___dev
-  cardImage___childSkillsYaml___image___dir
-  cardImage___childSkillsYaml___image___ext
-  cardImage___childSkillsYaml___image___extension
-  cardImage___childSkillsYaml___image___gid
-  cardImage___childSkillsYaml___image___id
-  cardImage___childSkillsYaml___image___ino
-  cardImage___childSkillsYaml___image___mode
-  cardImage___childSkillsYaml___image___modifiedTime
-  cardImage___childSkillsYaml___image___mtime
-  cardImage___childSkillsYaml___image___mtimeMs
-  cardImage___childSkillsYaml___image___name
-  cardImage___childSkillsYaml___image___nlink
-  cardImage___childSkillsYaml___image___prettySize
-  cardImage___childSkillsYaml___image___publicURL
-  cardImage___childSkillsYaml___image___rdev
-  cardImage___childSkillsYaml___image___relativeDirectory
-  cardImage___childSkillsYaml___image___relativePath
-  cardImage___childSkillsYaml___image___root
-  cardImage___childSkillsYaml___image___size
-  cardImage___childSkillsYaml___image___sourceInstanceName
-  cardImage___childSkillsYaml___image___uid
-  cardImage___childSkillsYaml___internal___content
-  cardImage___childSkillsYaml___internal___contentDigest
-  cardImage___childSkillsYaml___internal___description
-  cardImage___childSkillsYaml___internal___fieldOwners
-  cardImage___childSkillsYaml___internal___ignoreType
-  cardImage___childSkillsYaml___internal___mediaType
-  cardImage___childSkillsYaml___internal___owner
-  cardImage___childSkillsYaml___internal___type
-  cardImage___childSkillsYaml___items
-  cardImage___childSkillsYaml___parent___children
-  cardImage___childSkillsYaml___parent___id
-  cardImage___childSkillsYaml___title
   cardImage___children
   cardImage___childrenImageSharp
   cardImage___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -4077,7 +3515,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childrenPortfolioYaml___screenshot___childrenImageSharp
   cardImage___childrenPortfolioYaml___screenshot___childrenPortfolioYaml
   cardImage___childrenPortfolioYaml___screenshot___childrenSiteConfigYaml
-  cardImage___childrenPortfolioYaml___screenshot___childrenSkillsYaml
   cardImage___childrenPortfolioYaml___screenshot___ctime
   cardImage___childrenPortfolioYaml___screenshot___ctimeMs
   cardImage___childrenPortfolioYaml___screenshot___dev
@@ -4123,7 +3560,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childrenSiteConfigYaml___cardImage___childrenImageSharp
   cardImage___childrenSiteConfigYaml___cardImage___childrenPortfolioYaml
   cardImage___childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  cardImage___childrenSiteConfigYaml___cardImage___childrenSkillsYaml
   cardImage___childrenSiteConfigYaml___cardImage___ctime
   cardImage___childrenSiteConfigYaml___cardImage___ctimeMs
   cardImage___childrenSiteConfigYaml___cardImage___dev
@@ -4167,7 +3603,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childrenSiteConfigYaml___favicon___childrenImageSharp
   cardImage___childrenSiteConfigYaml___favicon___childrenPortfolioYaml
   cardImage___childrenSiteConfigYaml___favicon___childrenSiteConfigYaml
-  cardImage___childrenSiteConfigYaml___favicon___childrenSkillsYaml
   cardImage___childrenSiteConfigYaml___favicon___ctime
   cardImage___childrenSiteConfigYaml___favicon___ctimeMs
   cardImage___childrenSiteConfigYaml___favicon___dev
@@ -4217,7 +3652,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childrenSiteConfigYaml___maskableIcon___childrenImageSharp
   cardImage___childrenSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   cardImage___childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  cardImage___childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
   cardImage___childrenSiteConfigYaml___maskableIcon___ctime
   cardImage___childrenSiteConfigYaml___maskableIcon___ctimeMs
   cardImage___childrenSiteConfigYaml___maskableIcon___dev
@@ -4245,63 +3679,6 @@ enum SiteConfigYamlFieldsEnum {
   cardImage___childrenSiteConfigYaml___parent___children
   cardImage___childrenSiteConfigYaml___parent___id
   cardImage___childrenSiteConfigYaml___title
-  cardImage___childrenSkillsYaml
-  cardImage___childrenSkillsYaml___children
-  cardImage___childrenSkillsYaml___children___children
-  cardImage___childrenSkillsYaml___children___id
-  cardImage___childrenSkillsYaml___id
-  cardImage___childrenSkillsYaml___image___absolutePath
-  cardImage___childrenSkillsYaml___image___accessTime
-  cardImage___childrenSkillsYaml___image___atime
-  cardImage___childrenSkillsYaml___image___atimeMs
-  cardImage___childrenSkillsYaml___image___base
-  cardImage___childrenSkillsYaml___image___birthTime
-  cardImage___childrenSkillsYaml___image___birthtime
-  cardImage___childrenSkillsYaml___image___birthtimeMs
-  cardImage___childrenSkillsYaml___image___blksize
-  cardImage___childrenSkillsYaml___image___blocks
-  cardImage___childrenSkillsYaml___image___changeTime
-  cardImage___childrenSkillsYaml___image___children
-  cardImage___childrenSkillsYaml___image___childrenImageSharp
-  cardImage___childrenSkillsYaml___image___childrenPortfolioYaml
-  cardImage___childrenSkillsYaml___image___childrenSiteConfigYaml
-  cardImage___childrenSkillsYaml___image___childrenSkillsYaml
-  cardImage___childrenSkillsYaml___image___ctime
-  cardImage___childrenSkillsYaml___image___ctimeMs
-  cardImage___childrenSkillsYaml___image___dev
-  cardImage___childrenSkillsYaml___image___dir
-  cardImage___childrenSkillsYaml___image___ext
-  cardImage___childrenSkillsYaml___image___extension
-  cardImage___childrenSkillsYaml___image___gid
-  cardImage___childrenSkillsYaml___image___id
-  cardImage___childrenSkillsYaml___image___ino
-  cardImage___childrenSkillsYaml___image___mode
-  cardImage___childrenSkillsYaml___image___modifiedTime
-  cardImage___childrenSkillsYaml___image___mtime
-  cardImage___childrenSkillsYaml___image___mtimeMs
-  cardImage___childrenSkillsYaml___image___name
-  cardImage___childrenSkillsYaml___image___nlink
-  cardImage___childrenSkillsYaml___image___prettySize
-  cardImage___childrenSkillsYaml___image___publicURL
-  cardImage___childrenSkillsYaml___image___rdev
-  cardImage___childrenSkillsYaml___image___relativeDirectory
-  cardImage___childrenSkillsYaml___image___relativePath
-  cardImage___childrenSkillsYaml___image___root
-  cardImage___childrenSkillsYaml___image___size
-  cardImage___childrenSkillsYaml___image___sourceInstanceName
-  cardImage___childrenSkillsYaml___image___uid
-  cardImage___childrenSkillsYaml___internal___content
-  cardImage___childrenSkillsYaml___internal___contentDigest
-  cardImage___childrenSkillsYaml___internal___description
-  cardImage___childrenSkillsYaml___internal___fieldOwners
-  cardImage___childrenSkillsYaml___internal___ignoreType
-  cardImage___childrenSkillsYaml___internal___mediaType
-  cardImage___childrenSkillsYaml___internal___owner
-  cardImage___childrenSkillsYaml___internal___type
-  cardImage___childrenSkillsYaml___items
-  cardImage___childrenSkillsYaml___parent___children
-  cardImage___childrenSkillsYaml___parent___id
-  cardImage___childrenSkillsYaml___title
   cardImage___children___children
   cardImage___children___children___children
   cardImage___children___children___id
@@ -4512,7 +3889,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childPortfolioYaml___screenshot___childrenImageSharp
   favicon___childPortfolioYaml___screenshot___childrenPortfolioYaml
   favicon___childPortfolioYaml___screenshot___childrenSiteConfigYaml
-  favicon___childPortfolioYaml___screenshot___childrenSkillsYaml
   favicon___childPortfolioYaml___screenshot___ctime
   favicon___childPortfolioYaml___screenshot___ctimeMs
   favicon___childPortfolioYaml___screenshot___dev
@@ -4557,7 +3933,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childSiteConfigYaml___cardImage___childrenImageSharp
   favicon___childSiteConfigYaml___cardImage___childrenPortfolioYaml
   favicon___childSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  favicon___childSiteConfigYaml___cardImage___childrenSkillsYaml
   favicon___childSiteConfigYaml___cardImage___ctime
   favicon___childSiteConfigYaml___cardImage___ctimeMs
   favicon___childSiteConfigYaml___cardImage___dev
@@ -4601,7 +3976,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childSiteConfigYaml___favicon___childrenImageSharp
   favicon___childSiteConfigYaml___favicon___childrenPortfolioYaml
   favicon___childSiteConfigYaml___favicon___childrenSiteConfigYaml
-  favicon___childSiteConfigYaml___favicon___childrenSkillsYaml
   favicon___childSiteConfigYaml___favicon___ctime
   favicon___childSiteConfigYaml___favicon___ctimeMs
   favicon___childSiteConfigYaml___favicon___dev
@@ -4651,7 +4025,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childSiteConfigYaml___maskableIcon___childrenImageSharp
   favicon___childSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   favicon___childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  favicon___childSiteConfigYaml___maskableIcon___childrenSkillsYaml
   favicon___childSiteConfigYaml___maskableIcon___ctime
   favicon___childSiteConfigYaml___maskableIcon___ctimeMs
   favicon___childSiteConfigYaml___maskableIcon___dev
@@ -4679,62 +4052,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childSiteConfigYaml___parent___children
   favicon___childSiteConfigYaml___parent___id
   favicon___childSiteConfigYaml___title
-  favicon___childSkillsYaml___children
-  favicon___childSkillsYaml___children___children
-  favicon___childSkillsYaml___children___id
-  favicon___childSkillsYaml___id
-  favicon___childSkillsYaml___image___absolutePath
-  favicon___childSkillsYaml___image___accessTime
-  favicon___childSkillsYaml___image___atime
-  favicon___childSkillsYaml___image___atimeMs
-  favicon___childSkillsYaml___image___base
-  favicon___childSkillsYaml___image___birthTime
-  favicon___childSkillsYaml___image___birthtime
-  favicon___childSkillsYaml___image___birthtimeMs
-  favicon___childSkillsYaml___image___blksize
-  favicon___childSkillsYaml___image___blocks
-  favicon___childSkillsYaml___image___changeTime
-  favicon___childSkillsYaml___image___children
-  favicon___childSkillsYaml___image___childrenImageSharp
-  favicon___childSkillsYaml___image___childrenPortfolioYaml
-  favicon___childSkillsYaml___image___childrenSiteConfigYaml
-  favicon___childSkillsYaml___image___childrenSkillsYaml
-  favicon___childSkillsYaml___image___ctime
-  favicon___childSkillsYaml___image___ctimeMs
-  favicon___childSkillsYaml___image___dev
-  favicon___childSkillsYaml___image___dir
-  favicon___childSkillsYaml___image___ext
-  favicon___childSkillsYaml___image___extension
-  favicon___childSkillsYaml___image___gid
-  favicon___childSkillsYaml___image___id
-  favicon___childSkillsYaml___image___ino
-  favicon___childSkillsYaml___image___mode
-  favicon___childSkillsYaml___image___modifiedTime
-  favicon___childSkillsYaml___image___mtime
-  favicon___childSkillsYaml___image___mtimeMs
-  favicon___childSkillsYaml___image___name
-  favicon___childSkillsYaml___image___nlink
-  favicon___childSkillsYaml___image___prettySize
-  favicon___childSkillsYaml___image___publicURL
-  favicon___childSkillsYaml___image___rdev
-  favicon___childSkillsYaml___image___relativeDirectory
-  favicon___childSkillsYaml___image___relativePath
-  favicon___childSkillsYaml___image___root
-  favicon___childSkillsYaml___image___size
-  favicon___childSkillsYaml___image___sourceInstanceName
-  favicon___childSkillsYaml___image___uid
-  favicon___childSkillsYaml___internal___content
-  favicon___childSkillsYaml___internal___contentDigest
-  favicon___childSkillsYaml___internal___description
-  favicon___childSkillsYaml___internal___fieldOwners
-  favicon___childSkillsYaml___internal___ignoreType
-  favicon___childSkillsYaml___internal___mediaType
-  favicon___childSkillsYaml___internal___owner
-  favicon___childSkillsYaml___internal___type
-  favicon___childSkillsYaml___items
-  favicon___childSkillsYaml___parent___children
-  favicon___childSkillsYaml___parent___id
-  favicon___childSkillsYaml___title
   favicon___children
   favicon___childrenImageSharp
   favicon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -4837,7 +4154,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childrenPortfolioYaml___screenshot___childrenImageSharp
   favicon___childrenPortfolioYaml___screenshot___childrenPortfolioYaml
   favicon___childrenPortfolioYaml___screenshot___childrenSiteConfigYaml
-  favicon___childrenPortfolioYaml___screenshot___childrenSkillsYaml
   favicon___childrenPortfolioYaml___screenshot___ctime
   favicon___childrenPortfolioYaml___screenshot___ctimeMs
   favicon___childrenPortfolioYaml___screenshot___dev
@@ -4883,7 +4199,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childrenSiteConfigYaml___cardImage___childrenImageSharp
   favicon___childrenSiteConfigYaml___cardImage___childrenPortfolioYaml
   favicon___childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  favicon___childrenSiteConfigYaml___cardImage___childrenSkillsYaml
   favicon___childrenSiteConfigYaml___cardImage___ctime
   favicon___childrenSiteConfigYaml___cardImage___ctimeMs
   favicon___childrenSiteConfigYaml___cardImage___dev
@@ -4927,7 +4242,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childrenSiteConfigYaml___favicon___childrenImageSharp
   favicon___childrenSiteConfigYaml___favicon___childrenPortfolioYaml
   favicon___childrenSiteConfigYaml___favicon___childrenSiteConfigYaml
-  favicon___childrenSiteConfigYaml___favicon___childrenSkillsYaml
   favicon___childrenSiteConfigYaml___favicon___ctime
   favicon___childrenSiteConfigYaml___favicon___ctimeMs
   favicon___childrenSiteConfigYaml___favicon___dev
@@ -4977,7 +4291,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childrenSiteConfigYaml___maskableIcon___childrenImageSharp
   favicon___childrenSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   favicon___childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  favicon___childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
   favicon___childrenSiteConfigYaml___maskableIcon___ctime
   favicon___childrenSiteConfigYaml___maskableIcon___ctimeMs
   favicon___childrenSiteConfigYaml___maskableIcon___dev
@@ -5005,63 +4318,6 @@ enum SiteConfigYamlFieldsEnum {
   favicon___childrenSiteConfigYaml___parent___children
   favicon___childrenSiteConfigYaml___parent___id
   favicon___childrenSiteConfigYaml___title
-  favicon___childrenSkillsYaml
-  favicon___childrenSkillsYaml___children
-  favicon___childrenSkillsYaml___children___children
-  favicon___childrenSkillsYaml___children___id
-  favicon___childrenSkillsYaml___id
-  favicon___childrenSkillsYaml___image___absolutePath
-  favicon___childrenSkillsYaml___image___accessTime
-  favicon___childrenSkillsYaml___image___atime
-  favicon___childrenSkillsYaml___image___atimeMs
-  favicon___childrenSkillsYaml___image___base
-  favicon___childrenSkillsYaml___image___birthTime
-  favicon___childrenSkillsYaml___image___birthtime
-  favicon___childrenSkillsYaml___image___birthtimeMs
-  favicon___childrenSkillsYaml___image___blksize
-  favicon___childrenSkillsYaml___image___blocks
-  favicon___childrenSkillsYaml___image___changeTime
-  favicon___childrenSkillsYaml___image___children
-  favicon___childrenSkillsYaml___image___childrenImageSharp
-  favicon___childrenSkillsYaml___image___childrenPortfolioYaml
-  favicon___childrenSkillsYaml___image___childrenSiteConfigYaml
-  favicon___childrenSkillsYaml___image___childrenSkillsYaml
-  favicon___childrenSkillsYaml___image___ctime
-  favicon___childrenSkillsYaml___image___ctimeMs
-  favicon___childrenSkillsYaml___image___dev
-  favicon___childrenSkillsYaml___image___dir
-  favicon___childrenSkillsYaml___image___ext
-  favicon___childrenSkillsYaml___image___extension
-  favicon___childrenSkillsYaml___image___gid
-  favicon___childrenSkillsYaml___image___id
-  favicon___childrenSkillsYaml___image___ino
-  favicon___childrenSkillsYaml___image___mode
-  favicon___childrenSkillsYaml___image___modifiedTime
-  favicon___childrenSkillsYaml___image___mtime
-  favicon___childrenSkillsYaml___image___mtimeMs
-  favicon___childrenSkillsYaml___image___name
-  favicon___childrenSkillsYaml___image___nlink
-  favicon___childrenSkillsYaml___image___prettySize
-  favicon___childrenSkillsYaml___image___publicURL
-  favicon___childrenSkillsYaml___image___rdev
-  favicon___childrenSkillsYaml___image___relativeDirectory
-  favicon___childrenSkillsYaml___image___relativePath
-  favicon___childrenSkillsYaml___image___root
-  favicon___childrenSkillsYaml___image___size
-  favicon___childrenSkillsYaml___image___sourceInstanceName
-  favicon___childrenSkillsYaml___image___uid
-  favicon___childrenSkillsYaml___internal___content
-  favicon___childrenSkillsYaml___internal___contentDigest
-  favicon___childrenSkillsYaml___internal___description
-  favicon___childrenSkillsYaml___internal___fieldOwners
-  favicon___childrenSkillsYaml___internal___ignoreType
-  favicon___childrenSkillsYaml___internal___mediaType
-  favicon___childrenSkillsYaml___internal___owner
-  favicon___childrenSkillsYaml___internal___type
-  favicon___childrenSkillsYaml___items
-  favicon___childrenSkillsYaml___parent___children
-  favicon___childrenSkillsYaml___parent___id
-  favicon___childrenSkillsYaml___title
   favicon___children___children
   favicon___children___children___children
   favicon___children___children___id
@@ -5242,7 +4498,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childPortfolioYaml___screenshot___childrenImageSharp
   maskableIcon___childPortfolioYaml___screenshot___childrenPortfolioYaml
   maskableIcon___childPortfolioYaml___screenshot___childrenSiteConfigYaml
-  maskableIcon___childPortfolioYaml___screenshot___childrenSkillsYaml
   maskableIcon___childPortfolioYaml___screenshot___ctime
   maskableIcon___childPortfolioYaml___screenshot___ctimeMs
   maskableIcon___childPortfolioYaml___screenshot___dev
@@ -5287,7 +4542,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childSiteConfigYaml___cardImage___childrenImageSharp
   maskableIcon___childSiteConfigYaml___cardImage___childrenPortfolioYaml
   maskableIcon___childSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  maskableIcon___childSiteConfigYaml___cardImage___childrenSkillsYaml
   maskableIcon___childSiteConfigYaml___cardImage___ctime
   maskableIcon___childSiteConfigYaml___cardImage___ctimeMs
   maskableIcon___childSiteConfigYaml___cardImage___dev
@@ -5331,7 +4585,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childSiteConfigYaml___favicon___childrenImageSharp
   maskableIcon___childSiteConfigYaml___favicon___childrenPortfolioYaml
   maskableIcon___childSiteConfigYaml___favicon___childrenSiteConfigYaml
-  maskableIcon___childSiteConfigYaml___favicon___childrenSkillsYaml
   maskableIcon___childSiteConfigYaml___favicon___ctime
   maskableIcon___childSiteConfigYaml___favicon___ctimeMs
   maskableIcon___childSiteConfigYaml___favicon___dev
@@ -5381,7 +4634,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childSiteConfigYaml___maskableIcon___childrenImageSharp
   maskableIcon___childSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   maskableIcon___childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  maskableIcon___childSiteConfigYaml___maskableIcon___childrenSkillsYaml
   maskableIcon___childSiteConfigYaml___maskableIcon___ctime
   maskableIcon___childSiteConfigYaml___maskableIcon___ctimeMs
   maskableIcon___childSiteConfigYaml___maskableIcon___dev
@@ -5409,62 +4661,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childSiteConfigYaml___parent___children
   maskableIcon___childSiteConfigYaml___parent___id
   maskableIcon___childSiteConfigYaml___title
-  maskableIcon___childSkillsYaml___children
-  maskableIcon___childSkillsYaml___children___children
-  maskableIcon___childSkillsYaml___children___id
-  maskableIcon___childSkillsYaml___id
-  maskableIcon___childSkillsYaml___image___absolutePath
-  maskableIcon___childSkillsYaml___image___accessTime
-  maskableIcon___childSkillsYaml___image___atime
-  maskableIcon___childSkillsYaml___image___atimeMs
-  maskableIcon___childSkillsYaml___image___base
-  maskableIcon___childSkillsYaml___image___birthTime
-  maskableIcon___childSkillsYaml___image___birthtime
-  maskableIcon___childSkillsYaml___image___birthtimeMs
-  maskableIcon___childSkillsYaml___image___blksize
-  maskableIcon___childSkillsYaml___image___blocks
-  maskableIcon___childSkillsYaml___image___changeTime
-  maskableIcon___childSkillsYaml___image___children
-  maskableIcon___childSkillsYaml___image___childrenImageSharp
-  maskableIcon___childSkillsYaml___image___childrenPortfolioYaml
-  maskableIcon___childSkillsYaml___image___childrenSiteConfigYaml
-  maskableIcon___childSkillsYaml___image___childrenSkillsYaml
-  maskableIcon___childSkillsYaml___image___ctime
-  maskableIcon___childSkillsYaml___image___ctimeMs
-  maskableIcon___childSkillsYaml___image___dev
-  maskableIcon___childSkillsYaml___image___dir
-  maskableIcon___childSkillsYaml___image___ext
-  maskableIcon___childSkillsYaml___image___extension
-  maskableIcon___childSkillsYaml___image___gid
-  maskableIcon___childSkillsYaml___image___id
-  maskableIcon___childSkillsYaml___image___ino
-  maskableIcon___childSkillsYaml___image___mode
-  maskableIcon___childSkillsYaml___image___modifiedTime
-  maskableIcon___childSkillsYaml___image___mtime
-  maskableIcon___childSkillsYaml___image___mtimeMs
-  maskableIcon___childSkillsYaml___image___name
-  maskableIcon___childSkillsYaml___image___nlink
-  maskableIcon___childSkillsYaml___image___prettySize
-  maskableIcon___childSkillsYaml___image___publicURL
-  maskableIcon___childSkillsYaml___image___rdev
-  maskableIcon___childSkillsYaml___image___relativeDirectory
-  maskableIcon___childSkillsYaml___image___relativePath
-  maskableIcon___childSkillsYaml___image___root
-  maskableIcon___childSkillsYaml___image___size
-  maskableIcon___childSkillsYaml___image___sourceInstanceName
-  maskableIcon___childSkillsYaml___image___uid
-  maskableIcon___childSkillsYaml___internal___content
-  maskableIcon___childSkillsYaml___internal___contentDigest
-  maskableIcon___childSkillsYaml___internal___description
-  maskableIcon___childSkillsYaml___internal___fieldOwners
-  maskableIcon___childSkillsYaml___internal___ignoreType
-  maskableIcon___childSkillsYaml___internal___mediaType
-  maskableIcon___childSkillsYaml___internal___owner
-  maskableIcon___childSkillsYaml___internal___type
-  maskableIcon___childSkillsYaml___items
-  maskableIcon___childSkillsYaml___parent___children
-  maskableIcon___childSkillsYaml___parent___id
-  maskableIcon___childSkillsYaml___title
   maskableIcon___children
   maskableIcon___childrenImageSharp
   maskableIcon___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -5567,7 +4763,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childrenPortfolioYaml___screenshot___childrenImageSharp
   maskableIcon___childrenPortfolioYaml___screenshot___childrenPortfolioYaml
   maskableIcon___childrenPortfolioYaml___screenshot___childrenSiteConfigYaml
-  maskableIcon___childrenPortfolioYaml___screenshot___childrenSkillsYaml
   maskableIcon___childrenPortfolioYaml___screenshot___ctime
   maskableIcon___childrenPortfolioYaml___screenshot___ctimeMs
   maskableIcon___childrenPortfolioYaml___screenshot___dev
@@ -5613,7 +4808,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childrenSiteConfigYaml___cardImage___childrenImageSharp
   maskableIcon___childrenSiteConfigYaml___cardImage___childrenPortfolioYaml
   maskableIcon___childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  maskableIcon___childrenSiteConfigYaml___cardImage___childrenSkillsYaml
   maskableIcon___childrenSiteConfigYaml___cardImage___ctime
   maskableIcon___childrenSiteConfigYaml___cardImage___ctimeMs
   maskableIcon___childrenSiteConfigYaml___cardImage___dev
@@ -5657,7 +4851,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childrenSiteConfigYaml___favicon___childrenImageSharp
   maskableIcon___childrenSiteConfigYaml___favicon___childrenPortfolioYaml
   maskableIcon___childrenSiteConfigYaml___favicon___childrenSiteConfigYaml
-  maskableIcon___childrenSiteConfigYaml___favicon___childrenSkillsYaml
   maskableIcon___childrenSiteConfigYaml___favicon___ctime
   maskableIcon___childrenSiteConfigYaml___favicon___ctimeMs
   maskableIcon___childrenSiteConfigYaml___favicon___dev
@@ -5707,7 +4900,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childrenSiteConfigYaml___maskableIcon___childrenImageSharp
   maskableIcon___childrenSiteConfigYaml___maskableIcon___childrenPortfolioYaml
   maskableIcon___childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  maskableIcon___childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
   maskableIcon___childrenSiteConfigYaml___maskableIcon___ctime
   maskableIcon___childrenSiteConfigYaml___maskableIcon___ctimeMs
   maskableIcon___childrenSiteConfigYaml___maskableIcon___dev
@@ -5735,63 +4927,6 @@ enum SiteConfigYamlFieldsEnum {
   maskableIcon___childrenSiteConfigYaml___parent___children
   maskableIcon___childrenSiteConfigYaml___parent___id
   maskableIcon___childrenSiteConfigYaml___title
-  maskableIcon___childrenSkillsYaml
-  maskableIcon___childrenSkillsYaml___children
-  maskableIcon___childrenSkillsYaml___children___children
-  maskableIcon___childrenSkillsYaml___children___id
-  maskableIcon___childrenSkillsYaml___id
-  maskableIcon___childrenSkillsYaml___image___absolutePath
-  maskableIcon___childrenSkillsYaml___image___accessTime
-  maskableIcon___childrenSkillsYaml___image___atime
-  maskableIcon___childrenSkillsYaml___image___atimeMs
-  maskableIcon___childrenSkillsYaml___image___base
-  maskableIcon___childrenSkillsYaml___image___birthTime
-  maskableIcon___childrenSkillsYaml___image___birthtime
-  maskableIcon___childrenSkillsYaml___image___birthtimeMs
-  maskableIcon___childrenSkillsYaml___image___blksize
-  maskableIcon___childrenSkillsYaml___image___blocks
-  maskableIcon___childrenSkillsYaml___image___changeTime
-  maskableIcon___childrenSkillsYaml___image___children
-  maskableIcon___childrenSkillsYaml___image___childrenImageSharp
-  maskableIcon___childrenSkillsYaml___image___childrenPortfolioYaml
-  maskableIcon___childrenSkillsYaml___image___childrenSiteConfigYaml
-  maskableIcon___childrenSkillsYaml___image___childrenSkillsYaml
-  maskableIcon___childrenSkillsYaml___image___ctime
-  maskableIcon___childrenSkillsYaml___image___ctimeMs
-  maskableIcon___childrenSkillsYaml___image___dev
-  maskableIcon___childrenSkillsYaml___image___dir
-  maskableIcon___childrenSkillsYaml___image___ext
-  maskableIcon___childrenSkillsYaml___image___extension
-  maskableIcon___childrenSkillsYaml___image___gid
-  maskableIcon___childrenSkillsYaml___image___id
-  maskableIcon___childrenSkillsYaml___image___ino
-  maskableIcon___childrenSkillsYaml___image___mode
-  maskableIcon___childrenSkillsYaml___image___modifiedTime
-  maskableIcon___childrenSkillsYaml___image___mtime
-  maskableIcon___childrenSkillsYaml___image___mtimeMs
-  maskableIcon___childrenSkillsYaml___image___name
-  maskableIcon___childrenSkillsYaml___image___nlink
-  maskableIcon___childrenSkillsYaml___image___prettySize
-  maskableIcon___childrenSkillsYaml___image___publicURL
-  maskableIcon___childrenSkillsYaml___image___rdev
-  maskableIcon___childrenSkillsYaml___image___relativeDirectory
-  maskableIcon___childrenSkillsYaml___image___relativePath
-  maskableIcon___childrenSkillsYaml___image___root
-  maskableIcon___childrenSkillsYaml___image___size
-  maskableIcon___childrenSkillsYaml___image___sourceInstanceName
-  maskableIcon___childrenSkillsYaml___image___uid
-  maskableIcon___childrenSkillsYaml___internal___content
-  maskableIcon___childrenSkillsYaml___internal___contentDigest
-  maskableIcon___childrenSkillsYaml___internal___description
-  maskableIcon___childrenSkillsYaml___internal___fieldOwners
-  maskableIcon___childrenSkillsYaml___internal___ignoreType
-  maskableIcon___childrenSkillsYaml___internal___mediaType
-  maskableIcon___childrenSkillsYaml___internal___owner
-  maskableIcon___childrenSkillsYaml___internal___type
-  maskableIcon___childrenSkillsYaml___items
-  maskableIcon___childrenSkillsYaml___parent___children
-  maskableIcon___childrenSkillsYaml___parent___id
-  maskableIcon___childrenSkillsYaml___title
   maskableIcon___children___children
   maskableIcon___children___children___children
   maskableIcon___children___children___id
@@ -6319,817 +5454,6 @@ enum SitePluginFieldsEnum {
   version
 }
 
-enum SkillsYamlFieldsEnum {
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  id
-  image___absolutePath
-  image___accessTime
-  image___atime
-  image___atimeMs
-  image___base
-  image___birthTime
-  image___birthtime
-  image___birthtimeMs
-  image___blksize
-  image___blocks
-  image___changeTime
-  image___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fixed___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___originalImg @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___presentationHeight @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___presentationWidth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___sizes @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___fluid___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___original___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___original___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___original___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___resolutions___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___originalImg @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___presentationHeight @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___presentationWidth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___sizes @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childImageSharp___sizes___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childPortfolioYaml___children
-  image___childPortfolioYaml___children___children
-  image___childPortfolioYaml___children___id
-  image___childPortfolioYaml___description
-  image___childPortfolioYaml___features
-  image___childPortfolioYaml___id
-  image___childPortfolioYaml___internal___content
-  image___childPortfolioYaml___internal___contentDigest
-  image___childPortfolioYaml___internal___description
-  image___childPortfolioYaml___internal___fieldOwners
-  image___childPortfolioYaml___internal___ignoreType
-  image___childPortfolioYaml___internal___mediaType
-  image___childPortfolioYaml___internal___owner
-  image___childPortfolioYaml___internal___type
-  image___childPortfolioYaml___parent___children
-  image___childPortfolioYaml___parent___id
-  image___childPortfolioYaml___screenshot___absolutePath
-  image___childPortfolioYaml___screenshot___accessTime
-  image___childPortfolioYaml___screenshot___atime
-  image___childPortfolioYaml___screenshot___atimeMs
-  image___childPortfolioYaml___screenshot___base
-  image___childPortfolioYaml___screenshot___birthTime
-  image___childPortfolioYaml___screenshot___birthtime
-  image___childPortfolioYaml___screenshot___birthtimeMs
-  image___childPortfolioYaml___screenshot___blksize
-  image___childPortfolioYaml___screenshot___blocks
-  image___childPortfolioYaml___screenshot___changeTime
-  image___childPortfolioYaml___screenshot___children
-  image___childPortfolioYaml___screenshot___childrenImageSharp
-  image___childPortfolioYaml___screenshot___childrenPortfolioYaml
-  image___childPortfolioYaml___screenshot___childrenSiteConfigYaml
-  image___childPortfolioYaml___screenshot___childrenSkillsYaml
-  image___childPortfolioYaml___screenshot___ctime
-  image___childPortfolioYaml___screenshot___ctimeMs
-  image___childPortfolioYaml___screenshot___dev
-  image___childPortfolioYaml___screenshot___dir
-  image___childPortfolioYaml___screenshot___ext
-  image___childPortfolioYaml___screenshot___extension
-  image___childPortfolioYaml___screenshot___gid
-  image___childPortfolioYaml___screenshot___id
-  image___childPortfolioYaml___screenshot___ino
-  image___childPortfolioYaml___screenshot___mode
-  image___childPortfolioYaml___screenshot___modifiedTime
-  image___childPortfolioYaml___screenshot___mtime
-  image___childPortfolioYaml___screenshot___mtimeMs
-  image___childPortfolioYaml___screenshot___name
-  image___childPortfolioYaml___screenshot___nlink
-  image___childPortfolioYaml___screenshot___prettySize
-  image___childPortfolioYaml___screenshot___publicURL
-  image___childPortfolioYaml___screenshot___rdev
-  image___childPortfolioYaml___screenshot___relativeDirectory
-  image___childPortfolioYaml___screenshot___relativePath
-  image___childPortfolioYaml___screenshot___root
-  image___childPortfolioYaml___screenshot___size
-  image___childPortfolioYaml___screenshot___sourceInstanceName
-  image___childPortfolioYaml___screenshot___uid
-  image___childPortfolioYaml___subtitle
-  image___childPortfolioYaml___technologies
-  image___childPortfolioYaml___title
-  image___childPortfolioYaml___url
-  image___childSiteConfigYaml___author
-  image___childSiteConfigYaml___cardImage___absolutePath
-  image___childSiteConfigYaml___cardImage___accessTime
-  image___childSiteConfigYaml___cardImage___atime
-  image___childSiteConfigYaml___cardImage___atimeMs
-  image___childSiteConfigYaml___cardImage___base
-  image___childSiteConfigYaml___cardImage___birthTime
-  image___childSiteConfigYaml___cardImage___birthtime
-  image___childSiteConfigYaml___cardImage___birthtimeMs
-  image___childSiteConfigYaml___cardImage___blksize
-  image___childSiteConfigYaml___cardImage___blocks
-  image___childSiteConfigYaml___cardImage___changeTime
-  image___childSiteConfigYaml___cardImage___children
-  image___childSiteConfigYaml___cardImage___childrenImageSharp
-  image___childSiteConfigYaml___cardImage___childrenPortfolioYaml
-  image___childSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  image___childSiteConfigYaml___cardImage___childrenSkillsYaml
-  image___childSiteConfigYaml___cardImage___ctime
-  image___childSiteConfigYaml___cardImage___ctimeMs
-  image___childSiteConfigYaml___cardImage___dev
-  image___childSiteConfigYaml___cardImage___dir
-  image___childSiteConfigYaml___cardImage___ext
-  image___childSiteConfigYaml___cardImage___extension
-  image___childSiteConfigYaml___cardImage___gid
-  image___childSiteConfigYaml___cardImage___id
-  image___childSiteConfigYaml___cardImage___ino
-  image___childSiteConfigYaml___cardImage___mode
-  image___childSiteConfigYaml___cardImage___modifiedTime
-  image___childSiteConfigYaml___cardImage___mtime
-  image___childSiteConfigYaml___cardImage___mtimeMs
-  image___childSiteConfigYaml___cardImage___name
-  image___childSiteConfigYaml___cardImage___nlink
-  image___childSiteConfigYaml___cardImage___prettySize
-  image___childSiteConfigYaml___cardImage___publicURL
-  image___childSiteConfigYaml___cardImage___rdev
-  image___childSiteConfigYaml___cardImage___relativeDirectory
-  image___childSiteConfigYaml___cardImage___relativePath
-  image___childSiteConfigYaml___cardImage___root
-  image___childSiteConfigYaml___cardImage___size
-  image___childSiteConfigYaml___cardImage___sourceInstanceName
-  image___childSiteConfigYaml___cardImage___uid
-  image___childSiteConfigYaml___children
-  image___childSiteConfigYaml___children___children
-  image___childSiteConfigYaml___children___id
-  image___childSiteConfigYaml___description
-  image___childSiteConfigYaml___favicon___absolutePath
-  image___childSiteConfigYaml___favicon___accessTime
-  image___childSiteConfigYaml___favicon___atime
-  image___childSiteConfigYaml___favicon___atimeMs
-  image___childSiteConfigYaml___favicon___base
-  image___childSiteConfigYaml___favicon___birthTime
-  image___childSiteConfigYaml___favicon___birthtime
-  image___childSiteConfigYaml___favicon___birthtimeMs
-  image___childSiteConfigYaml___favicon___blksize
-  image___childSiteConfigYaml___favicon___blocks
-  image___childSiteConfigYaml___favicon___changeTime
-  image___childSiteConfigYaml___favicon___children
-  image___childSiteConfigYaml___favicon___childrenImageSharp
-  image___childSiteConfigYaml___favicon___childrenPortfolioYaml
-  image___childSiteConfigYaml___favicon___childrenSiteConfigYaml
-  image___childSiteConfigYaml___favicon___childrenSkillsYaml
-  image___childSiteConfigYaml___favicon___ctime
-  image___childSiteConfigYaml___favicon___ctimeMs
-  image___childSiteConfigYaml___favicon___dev
-  image___childSiteConfigYaml___favicon___dir
-  image___childSiteConfigYaml___favicon___ext
-  image___childSiteConfigYaml___favicon___extension
-  image___childSiteConfigYaml___favicon___gid
-  image___childSiteConfigYaml___favicon___id
-  image___childSiteConfigYaml___favicon___ino
-  image___childSiteConfigYaml___favicon___mode
-  image___childSiteConfigYaml___favicon___modifiedTime
-  image___childSiteConfigYaml___favicon___mtime
-  image___childSiteConfigYaml___favicon___mtimeMs
-  image___childSiteConfigYaml___favicon___name
-  image___childSiteConfigYaml___favicon___nlink
-  image___childSiteConfigYaml___favicon___prettySize
-  image___childSiteConfigYaml___favicon___publicURL
-  image___childSiteConfigYaml___favicon___rdev
-  image___childSiteConfigYaml___favicon___relativeDirectory
-  image___childSiteConfigYaml___favicon___relativePath
-  image___childSiteConfigYaml___favicon___root
-  image___childSiteConfigYaml___favicon___size
-  image___childSiteConfigYaml___favicon___sourceInstanceName
-  image___childSiteConfigYaml___favicon___uid
-  image___childSiteConfigYaml___id
-  image___childSiteConfigYaml___internal___content
-  image___childSiteConfigYaml___internal___contentDigest
-  image___childSiteConfigYaml___internal___description
-  image___childSiteConfigYaml___internal___fieldOwners
-  image___childSiteConfigYaml___internal___ignoreType
-  image___childSiteConfigYaml___internal___mediaType
-  image___childSiteConfigYaml___internal___owner
-  image___childSiteConfigYaml___internal___type
-  image___childSiteConfigYaml___lang
-  image___childSiteConfigYaml___maskableIcon___absolutePath
-  image___childSiteConfigYaml___maskableIcon___accessTime
-  image___childSiteConfigYaml___maskableIcon___atime
-  image___childSiteConfigYaml___maskableIcon___atimeMs
-  image___childSiteConfigYaml___maskableIcon___base
-  image___childSiteConfigYaml___maskableIcon___birthTime
-  image___childSiteConfigYaml___maskableIcon___birthtime
-  image___childSiteConfigYaml___maskableIcon___birthtimeMs
-  image___childSiteConfigYaml___maskableIcon___blksize
-  image___childSiteConfigYaml___maskableIcon___blocks
-  image___childSiteConfigYaml___maskableIcon___changeTime
-  image___childSiteConfigYaml___maskableIcon___children
-  image___childSiteConfigYaml___maskableIcon___childrenImageSharp
-  image___childSiteConfigYaml___maskableIcon___childrenPortfolioYaml
-  image___childSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  image___childSiteConfigYaml___maskableIcon___childrenSkillsYaml
-  image___childSiteConfigYaml___maskableIcon___ctime
-  image___childSiteConfigYaml___maskableIcon___ctimeMs
-  image___childSiteConfigYaml___maskableIcon___dev
-  image___childSiteConfigYaml___maskableIcon___dir
-  image___childSiteConfigYaml___maskableIcon___ext
-  image___childSiteConfigYaml___maskableIcon___extension
-  image___childSiteConfigYaml___maskableIcon___gid
-  image___childSiteConfigYaml___maskableIcon___id
-  image___childSiteConfigYaml___maskableIcon___ino
-  image___childSiteConfigYaml___maskableIcon___mode
-  image___childSiteConfigYaml___maskableIcon___modifiedTime
-  image___childSiteConfigYaml___maskableIcon___mtime
-  image___childSiteConfigYaml___maskableIcon___mtimeMs
-  image___childSiteConfigYaml___maskableIcon___name
-  image___childSiteConfigYaml___maskableIcon___nlink
-  image___childSiteConfigYaml___maskableIcon___prettySize
-  image___childSiteConfigYaml___maskableIcon___publicURL
-  image___childSiteConfigYaml___maskableIcon___rdev
-  image___childSiteConfigYaml___maskableIcon___relativeDirectory
-  image___childSiteConfigYaml___maskableIcon___relativePath
-  image___childSiteConfigYaml___maskableIcon___root
-  image___childSiteConfigYaml___maskableIcon___size
-  image___childSiteConfigYaml___maskableIcon___sourceInstanceName
-  image___childSiteConfigYaml___maskableIcon___uid
-  image___childSiteConfigYaml___parent___children
-  image___childSiteConfigYaml___parent___id
-  image___childSiteConfigYaml___title
-  image___childSkillsYaml___children
-  image___childSkillsYaml___children___children
-  image___childSkillsYaml___children___id
-  image___childSkillsYaml___id
-  image___childSkillsYaml___image___absolutePath
-  image___childSkillsYaml___image___accessTime
-  image___childSkillsYaml___image___atime
-  image___childSkillsYaml___image___atimeMs
-  image___childSkillsYaml___image___base
-  image___childSkillsYaml___image___birthTime
-  image___childSkillsYaml___image___birthtime
-  image___childSkillsYaml___image___birthtimeMs
-  image___childSkillsYaml___image___blksize
-  image___childSkillsYaml___image___blocks
-  image___childSkillsYaml___image___changeTime
-  image___childSkillsYaml___image___children
-  image___childSkillsYaml___image___childrenImageSharp
-  image___childSkillsYaml___image___childrenPortfolioYaml
-  image___childSkillsYaml___image___childrenSiteConfigYaml
-  image___childSkillsYaml___image___childrenSkillsYaml
-  image___childSkillsYaml___image___ctime
-  image___childSkillsYaml___image___ctimeMs
-  image___childSkillsYaml___image___dev
-  image___childSkillsYaml___image___dir
-  image___childSkillsYaml___image___ext
-  image___childSkillsYaml___image___extension
-  image___childSkillsYaml___image___gid
-  image___childSkillsYaml___image___id
-  image___childSkillsYaml___image___ino
-  image___childSkillsYaml___image___mode
-  image___childSkillsYaml___image___modifiedTime
-  image___childSkillsYaml___image___mtime
-  image___childSkillsYaml___image___mtimeMs
-  image___childSkillsYaml___image___name
-  image___childSkillsYaml___image___nlink
-  image___childSkillsYaml___image___prettySize
-  image___childSkillsYaml___image___publicURL
-  image___childSkillsYaml___image___rdev
-  image___childSkillsYaml___image___relativeDirectory
-  image___childSkillsYaml___image___relativePath
-  image___childSkillsYaml___image___root
-  image___childSkillsYaml___image___size
-  image___childSkillsYaml___image___sourceInstanceName
-  image___childSkillsYaml___image___uid
-  image___childSkillsYaml___internal___content
-  image___childSkillsYaml___internal___contentDigest
-  image___childSkillsYaml___internal___description
-  image___childSkillsYaml___internal___fieldOwners
-  image___childSkillsYaml___internal___ignoreType
-  image___childSkillsYaml___internal___mediaType
-  image___childSkillsYaml___internal___owner
-  image___childSkillsYaml___internal___type
-  image___childSkillsYaml___items
-  image___childSkillsYaml___parent___children
-  image___childSkillsYaml___parent___id
-  image___childSkillsYaml___title
-  image___children
-  image___childrenImageSharp
-  image___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fixed___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___originalImg @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___presentationHeight @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___presentationWidth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___sizes @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___fluid___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___original___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___original___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___original___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___height @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___resolutions___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___aspectRatio @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___base64 @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___originalImg @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___originalName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___presentationHeight @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___presentationWidth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___sizes @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___srcSet @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___srcSetWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___srcWebp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenImageSharp___sizes___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-  image___childrenPortfolioYaml
-  image___childrenPortfolioYaml___children
-  image___childrenPortfolioYaml___children___children
-  image___childrenPortfolioYaml___children___id
-  image___childrenPortfolioYaml___description
-  image___childrenPortfolioYaml___features
-  image___childrenPortfolioYaml___id
-  image___childrenPortfolioYaml___internal___content
-  image___childrenPortfolioYaml___internal___contentDigest
-  image___childrenPortfolioYaml___internal___description
-  image___childrenPortfolioYaml___internal___fieldOwners
-  image___childrenPortfolioYaml___internal___ignoreType
-  image___childrenPortfolioYaml___internal___mediaType
-  image___childrenPortfolioYaml___internal___owner
-  image___childrenPortfolioYaml___internal___type
-  image___childrenPortfolioYaml___parent___children
-  image___childrenPortfolioYaml___parent___id
-  image___childrenPortfolioYaml___screenshot___absolutePath
-  image___childrenPortfolioYaml___screenshot___accessTime
-  image___childrenPortfolioYaml___screenshot___atime
-  image___childrenPortfolioYaml___screenshot___atimeMs
-  image___childrenPortfolioYaml___screenshot___base
-  image___childrenPortfolioYaml___screenshot___birthTime
-  image___childrenPortfolioYaml___screenshot___birthtime
-  image___childrenPortfolioYaml___screenshot___birthtimeMs
-  image___childrenPortfolioYaml___screenshot___blksize
-  image___childrenPortfolioYaml___screenshot___blocks
-  image___childrenPortfolioYaml___screenshot___changeTime
-  image___childrenPortfolioYaml___screenshot___children
-  image___childrenPortfolioYaml___screenshot___childrenImageSharp
-  image___childrenPortfolioYaml___screenshot___childrenPortfolioYaml
-  image___childrenPortfolioYaml___screenshot___childrenSiteConfigYaml
-  image___childrenPortfolioYaml___screenshot___childrenSkillsYaml
-  image___childrenPortfolioYaml___screenshot___ctime
-  image___childrenPortfolioYaml___screenshot___ctimeMs
-  image___childrenPortfolioYaml___screenshot___dev
-  image___childrenPortfolioYaml___screenshot___dir
-  image___childrenPortfolioYaml___screenshot___ext
-  image___childrenPortfolioYaml___screenshot___extension
-  image___childrenPortfolioYaml___screenshot___gid
-  image___childrenPortfolioYaml___screenshot___id
-  image___childrenPortfolioYaml___screenshot___ino
-  image___childrenPortfolioYaml___screenshot___mode
-  image___childrenPortfolioYaml___screenshot___modifiedTime
-  image___childrenPortfolioYaml___screenshot___mtime
-  image___childrenPortfolioYaml___screenshot___mtimeMs
-  image___childrenPortfolioYaml___screenshot___name
-  image___childrenPortfolioYaml___screenshot___nlink
-  image___childrenPortfolioYaml___screenshot___prettySize
-  image___childrenPortfolioYaml___screenshot___publicURL
-  image___childrenPortfolioYaml___screenshot___rdev
-  image___childrenPortfolioYaml___screenshot___relativeDirectory
-  image___childrenPortfolioYaml___screenshot___relativePath
-  image___childrenPortfolioYaml___screenshot___root
-  image___childrenPortfolioYaml___screenshot___size
-  image___childrenPortfolioYaml___screenshot___sourceInstanceName
-  image___childrenPortfolioYaml___screenshot___uid
-  image___childrenPortfolioYaml___subtitle
-  image___childrenPortfolioYaml___technologies
-  image___childrenPortfolioYaml___title
-  image___childrenPortfolioYaml___url
-  image___childrenSiteConfigYaml
-  image___childrenSiteConfigYaml___author
-  image___childrenSiteConfigYaml___cardImage___absolutePath
-  image___childrenSiteConfigYaml___cardImage___accessTime
-  image___childrenSiteConfigYaml___cardImage___atime
-  image___childrenSiteConfigYaml___cardImage___atimeMs
-  image___childrenSiteConfigYaml___cardImage___base
-  image___childrenSiteConfigYaml___cardImage___birthTime
-  image___childrenSiteConfigYaml___cardImage___birthtime
-  image___childrenSiteConfigYaml___cardImage___birthtimeMs
-  image___childrenSiteConfigYaml___cardImage___blksize
-  image___childrenSiteConfigYaml___cardImage___blocks
-  image___childrenSiteConfigYaml___cardImage___changeTime
-  image___childrenSiteConfigYaml___cardImage___children
-  image___childrenSiteConfigYaml___cardImage___childrenImageSharp
-  image___childrenSiteConfigYaml___cardImage___childrenPortfolioYaml
-  image___childrenSiteConfigYaml___cardImage___childrenSiteConfigYaml
-  image___childrenSiteConfigYaml___cardImage___childrenSkillsYaml
-  image___childrenSiteConfigYaml___cardImage___ctime
-  image___childrenSiteConfigYaml___cardImage___ctimeMs
-  image___childrenSiteConfigYaml___cardImage___dev
-  image___childrenSiteConfigYaml___cardImage___dir
-  image___childrenSiteConfigYaml___cardImage___ext
-  image___childrenSiteConfigYaml___cardImage___extension
-  image___childrenSiteConfigYaml___cardImage___gid
-  image___childrenSiteConfigYaml___cardImage___id
-  image___childrenSiteConfigYaml___cardImage___ino
-  image___childrenSiteConfigYaml___cardImage___mode
-  image___childrenSiteConfigYaml___cardImage___modifiedTime
-  image___childrenSiteConfigYaml___cardImage___mtime
-  image___childrenSiteConfigYaml___cardImage___mtimeMs
-  image___childrenSiteConfigYaml___cardImage___name
-  image___childrenSiteConfigYaml___cardImage___nlink
-  image___childrenSiteConfigYaml___cardImage___prettySize
-  image___childrenSiteConfigYaml___cardImage___publicURL
-  image___childrenSiteConfigYaml___cardImage___rdev
-  image___childrenSiteConfigYaml___cardImage___relativeDirectory
-  image___childrenSiteConfigYaml___cardImage___relativePath
-  image___childrenSiteConfigYaml___cardImage___root
-  image___childrenSiteConfigYaml___cardImage___size
-  image___childrenSiteConfigYaml___cardImage___sourceInstanceName
-  image___childrenSiteConfigYaml___cardImage___uid
-  image___childrenSiteConfigYaml___children
-  image___childrenSiteConfigYaml___children___children
-  image___childrenSiteConfigYaml___children___id
-  image___childrenSiteConfigYaml___description
-  image___childrenSiteConfigYaml___favicon___absolutePath
-  image___childrenSiteConfigYaml___favicon___accessTime
-  image___childrenSiteConfigYaml___favicon___atime
-  image___childrenSiteConfigYaml___favicon___atimeMs
-  image___childrenSiteConfigYaml___favicon___base
-  image___childrenSiteConfigYaml___favicon___birthTime
-  image___childrenSiteConfigYaml___favicon___birthtime
-  image___childrenSiteConfigYaml___favicon___birthtimeMs
-  image___childrenSiteConfigYaml___favicon___blksize
-  image___childrenSiteConfigYaml___favicon___blocks
-  image___childrenSiteConfigYaml___favicon___changeTime
-  image___childrenSiteConfigYaml___favicon___children
-  image___childrenSiteConfigYaml___favicon___childrenImageSharp
-  image___childrenSiteConfigYaml___favicon___childrenPortfolioYaml
-  image___childrenSiteConfigYaml___favicon___childrenSiteConfigYaml
-  image___childrenSiteConfigYaml___favicon___childrenSkillsYaml
-  image___childrenSiteConfigYaml___favicon___ctime
-  image___childrenSiteConfigYaml___favicon___ctimeMs
-  image___childrenSiteConfigYaml___favicon___dev
-  image___childrenSiteConfigYaml___favicon___dir
-  image___childrenSiteConfigYaml___favicon___ext
-  image___childrenSiteConfigYaml___favicon___extension
-  image___childrenSiteConfigYaml___favicon___gid
-  image___childrenSiteConfigYaml___favicon___id
-  image___childrenSiteConfigYaml___favicon___ino
-  image___childrenSiteConfigYaml___favicon___mode
-  image___childrenSiteConfigYaml___favicon___modifiedTime
-  image___childrenSiteConfigYaml___favicon___mtime
-  image___childrenSiteConfigYaml___favicon___mtimeMs
-  image___childrenSiteConfigYaml___favicon___name
-  image___childrenSiteConfigYaml___favicon___nlink
-  image___childrenSiteConfigYaml___favicon___prettySize
-  image___childrenSiteConfigYaml___favicon___publicURL
-  image___childrenSiteConfigYaml___favicon___rdev
-  image___childrenSiteConfigYaml___favicon___relativeDirectory
-  image___childrenSiteConfigYaml___favicon___relativePath
-  image___childrenSiteConfigYaml___favicon___root
-  image___childrenSiteConfigYaml___favicon___size
-  image___childrenSiteConfigYaml___favicon___sourceInstanceName
-  image___childrenSiteConfigYaml___favicon___uid
-  image___childrenSiteConfigYaml___id
-  image___childrenSiteConfigYaml___internal___content
-  image___childrenSiteConfigYaml___internal___contentDigest
-  image___childrenSiteConfigYaml___internal___description
-  image___childrenSiteConfigYaml___internal___fieldOwners
-  image___childrenSiteConfigYaml___internal___ignoreType
-  image___childrenSiteConfigYaml___internal___mediaType
-  image___childrenSiteConfigYaml___internal___owner
-  image___childrenSiteConfigYaml___internal___type
-  image___childrenSiteConfigYaml___lang
-  image___childrenSiteConfigYaml___maskableIcon___absolutePath
-  image___childrenSiteConfigYaml___maskableIcon___accessTime
-  image___childrenSiteConfigYaml___maskableIcon___atime
-  image___childrenSiteConfigYaml___maskableIcon___atimeMs
-  image___childrenSiteConfigYaml___maskableIcon___base
-  image___childrenSiteConfigYaml___maskableIcon___birthTime
-  image___childrenSiteConfigYaml___maskableIcon___birthtime
-  image___childrenSiteConfigYaml___maskableIcon___birthtimeMs
-  image___childrenSiteConfigYaml___maskableIcon___blksize
-  image___childrenSiteConfigYaml___maskableIcon___blocks
-  image___childrenSiteConfigYaml___maskableIcon___changeTime
-  image___childrenSiteConfigYaml___maskableIcon___children
-  image___childrenSiteConfigYaml___maskableIcon___childrenImageSharp
-  image___childrenSiteConfigYaml___maskableIcon___childrenPortfolioYaml
-  image___childrenSiteConfigYaml___maskableIcon___childrenSiteConfigYaml
-  image___childrenSiteConfigYaml___maskableIcon___childrenSkillsYaml
-  image___childrenSiteConfigYaml___maskableIcon___ctime
-  image___childrenSiteConfigYaml___maskableIcon___ctimeMs
-  image___childrenSiteConfigYaml___maskableIcon___dev
-  image___childrenSiteConfigYaml___maskableIcon___dir
-  image___childrenSiteConfigYaml___maskableIcon___ext
-  image___childrenSiteConfigYaml___maskableIcon___extension
-  image___childrenSiteConfigYaml___maskableIcon___gid
-  image___childrenSiteConfigYaml___maskableIcon___id
-  image___childrenSiteConfigYaml___maskableIcon___ino
-  image___childrenSiteConfigYaml___maskableIcon___mode
-  image___childrenSiteConfigYaml___maskableIcon___modifiedTime
-  image___childrenSiteConfigYaml___maskableIcon___mtime
-  image___childrenSiteConfigYaml___maskableIcon___mtimeMs
-  image___childrenSiteConfigYaml___maskableIcon___name
-  image___childrenSiteConfigYaml___maskableIcon___nlink
-  image___childrenSiteConfigYaml___maskableIcon___prettySize
-  image___childrenSiteConfigYaml___maskableIcon___publicURL
-  image___childrenSiteConfigYaml___maskableIcon___rdev
-  image___childrenSiteConfigYaml___maskableIcon___relativeDirectory
-  image___childrenSiteConfigYaml___maskableIcon___relativePath
-  image___childrenSiteConfigYaml___maskableIcon___root
-  image___childrenSiteConfigYaml___maskableIcon___size
-  image___childrenSiteConfigYaml___maskableIcon___sourceInstanceName
-  image___childrenSiteConfigYaml___maskableIcon___uid
-  image___childrenSiteConfigYaml___parent___children
-  image___childrenSiteConfigYaml___parent___id
-  image___childrenSiteConfigYaml___title
-  image___childrenSkillsYaml
-  image___childrenSkillsYaml___children
-  image___childrenSkillsYaml___children___children
-  image___childrenSkillsYaml___children___id
-  image___childrenSkillsYaml___id
-  image___childrenSkillsYaml___image___absolutePath
-  image___childrenSkillsYaml___image___accessTime
-  image___childrenSkillsYaml___image___atime
-  image___childrenSkillsYaml___image___atimeMs
-  image___childrenSkillsYaml___image___base
-  image___childrenSkillsYaml___image___birthTime
-  image___childrenSkillsYaml___image___birthtime
-  image___childrenSkillsYaml___image___birthtimeMs
-  image___childrenSkillsYaml___image___blksize
-  image___childrenSkillsYaml___image___blocks
-  image___childrenSkillsYaml___image___changeTime
-  image___childrenSkillsYaml___image___children
-  image___childrenSkillsYaml___image___childrenImageSharp
-  image___childrenSkillsYaml___image___childrenPortfolioYaml
-  image___childrenSkillsYaml___image___childrenSiteConfigYaml
-  image___childrenSkillsYaml___image___childrenSkillsYaml
-  image___childrenSkillsYaml___image___ctime
-  image___childrenSkillsYaml___image___ctimeMs
-  image___childrenSkillsYaml___image___dev
-  image___childrenSkillsYaml___image___dir
-  image___childrenSkillsYaml___image___ext
-  image___childrenSkillsYaml___image___extension
-  image___childrenSkillsYaml___image___gid
-  image___childrenSkillsYaml___image___id
-  image___childrenSkillsYaml___image___ino
-  image___childrenSkillsYaml___image___mode
-  image___childrenSkillsYaml___image___modifiedTime
-  image___childrenSkillsYaml___image___mtime
-  image___childrenSkillsYaml___image___mtimeMs
-  image___childrenSkillsYaml___image___name
-  image___childrenSkillsYaml___image___nlink
-  image___childrenSkillsYaml___image___prettySize
-  image___childrenSkillsYaml___image___publicURL
-  image___childrenSkillsYaml___image___rdev
-  image___childrenSkillsYaml___image___relativeDirectory
-  image___childrenSkillsYaml___image___relativePath
-  image___childrenSkillsYaml___image___root
-  image___childrenSkillsYaml___image___size
-  image___childrenSkillsYaml___image___sourceInstanceName
-  image___childrenSkillsYaml___image___uid
-  image___childrenSkillsYaml___internal___content
-  image___childrenSkillsYaml___internal___contentDigest
-  image___childrenSkillsYaml___internal___description
-  image___childrenSkillsYaml___internal___fieldOwners
-  image___childrenSkillsYaml___internal___ignoreType
-  image___childrenSkillsYaml___internal___mediaType
-  image___childrenSkillsYaml___internal___owner
-  image___childrenSkillsYaml___internal___type
-  image___childrenSkillsYaml___items
-  image___childrenSkillsYaml___parent___children
-  image___childrenSkillsYaml___parent___id
-  image___childrenSkillsYaml___title
-  image___children___children
-  image___children___children___children
-  image___children___children___id
-  image___children___id
-  image___children___internal___content
-  image___children___internal___contentDigest
-  image___children___internal___description
-  image___children___internal___fieldOwners
-  image___children___internal___ignoreType
-  image___children___internal___mediaType
-  image___children___internal___owner
-  image___children___internal___type
-  image___children___parent___children
-  image___children___parent___id
-  image___ctime
-  image___ctimeMs
-  image___dev
-  image___dir
-  image___ext
-  image___extension
-  image___gid
-  image___id
-  image___ino
-  image___internal___content
-  image___internal___contentDigest
-  image___internal___description
-  image___internal___fieldOwners
-  image___internal___ignoreType
-  image___internal___mediaType
-  image___internal___owner
-  image___internal___type
-  image___mode
-  image___modifiedTime
-  image___mtime
-  image___mtimeMs
-  image___name
-  image___nlink
-  image___parent___children
-  image___parent___children___children
-  image___parent___children___id
-  image___parent___id
-  image___parent___internal___content
-  image___parent___internal___contentDigest
-  image___parent___internal___description
-  image___parent___internal___fieldOwners
-  image___parent___internal___ignoreType
-  image___parent___internal___mediaType
-  image___parent___internal___owner
-  image___parent___internal___type
-  image___parent___parent___children
-  image___parent___parent___id
-  image___prettySize
-  image___publicURL
-  image___rdev
-  image___relativeDirectory
-  image___relativePath
-  image___root
-  image___size
-  image___sourceInstanceName
-  image___uid
-  internal___content
-  internal___contentDigest
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  items
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  title
-}
-
 enum SortOrderEnum {
   ASC
   DESC
@@ -7232,12 +5556,10 @@ input FileFilterInput {
   childImageSharp: ImageSharpFilterInput
   childPortfolioYaml: PortfolioYamlFilterInput
   childSiteConfigYaml: SiteConfigYamlFilterInput
-  childSkillsYaml: SkillsYamlFilterInput
   children: NodeFilterListInput
   childrenImageSharp: ImageSharpFilterListInput
   childrenPortfolioYaml: PortfolioYamlFilterListInput
   childrenSiteConfigYaml: SiteConfigYamlFilterListInput
-  childrenSkillsYaml: SkillsYamlFilterListInput
   ctime: DateQueryOperatorInput
   ctimeMs: FloatQueryOperatorInput
   dev: IntQueryOperatorInput
@@ -7646,25 +5968,6 @@ input SiteSiteMetadataFilterInput {
 
 input SiteSortInput {
   fields: [SiteFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
-}
-
-input SkillsYamlFilterInput {
-  children: NodeFilterListInput
-  id: StringQueryOperatorInput
-  image: FileFilterInput
-  internal: InternalFilterInput
-  items: StringQueryOperatorInput
-  parent: NodeFilterInput
-  title: StringQueryOperatorInput
-}
-
-input SkillsYamlFilterListInput {
-  elemMatch: SkillsYamlFilterInput
-}
-
-input SkillsYamlSortInput {
-  fields: [SkillsYamlFieldsEnum]
   order: [SortOrderEnum] = [ASC]
 }
 

@@ -25,6 +25,8 @@ const Portfolio = () => {
                 srcWebp
                 srcSetWebp
                 sizes
+                presentationWidth
+                presentationHeight
               }
             }
           }
@@ -34,7 +36,7 @@ const Portfolio = () => {
   `)
 
   return (
-    <div id='portfolio' >
+    <div id='portfolio'>
       <SectionHeading>Portfolio</SectionHeading>
       <div className='container max-w-screen-xl mx-auto px-5'>
         {projects.map(project => <PortfolioSite key={project.id} project={project}/>)}

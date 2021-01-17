@@ -21,7 +21,7 @@ const PortfolioSite = ({project}) => {
       opacity: 0,
       x: textIsOnRightHalf ? 200 : -200,
       scrollTrigger: textRef.current,
-      duration: 1
+      duration: 1,
     })
 
     // Image fades in from top
@@ -29,7 +29,7 @@ const PortfolioSite = ({project}) => {
       opacity: 0,
       y: 200,
       scrollTrigger: imageRef.current,
-      duration: 1
+      duration: 1,
     })
   }, [])
 
@@ -38,12 +38,12 @@ const PortfolioSite = ({project}) => {
 
       {/* Mockup */}
       <div ref={imageRef} className='h-full w-full' style={{flex: '1 1 0px'}}>
-        {/* TODO: Add some ratio boxes here */}
-        {/*  https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions */}
         <Img
           className='w-full h-full object-contain rounded-2xl'
           fluid={project.screenshot.childImageSharp.fluid}
           alt={`${project.title} screenshot`}
+          width={project.screenshot.childImageSharp.fluid.presentationWidth}
+          height={project.screenshot.childImageSharp.fluid.presentationHeight}
         />
       </div>
 

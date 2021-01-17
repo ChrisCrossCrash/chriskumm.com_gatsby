@@ -9,6 +9,8 @@ const SkillSection = ({title, skills, image}) => (
       src={image}
       alt={title}
       className='w-1/2 mt-3 mb-5'
+      width='184px'
+      height='184px'
     />
     <h1 className='uppercase text-2xl tracking-widest mb-3'>{title}</h1>
     <div className='flex flex-col items-center mb-7 leading-relaxed'>
