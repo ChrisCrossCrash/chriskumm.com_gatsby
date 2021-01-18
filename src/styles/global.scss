@@ -19,6 +19,13 @@
 // https://tailwindcss.com/docs/functions-and-directives#layer
 
 @layer base {
+
+  // Get the correct aspect ratio for images based on width and height HTML attributes
+  // https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping
+  img, video {
+    aspect-ratio: attr(width) / attr(height);
+  }
+
   body {
     @apply text-dark;
   }
@@ -68,12 +75,6 @@ html {
   scroll-behavior: smooth;
 }
 
-// Get the correct aspect ratio for images based on width and height HTML attributes
-// https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping
-img, video {
-    aspect-ratio: attr(width) / attr(height);
-}
-
 .waves {
   position: absolute;
   bottom: 0;
@@ -87,6 +88,7 @@ img, video {
   // setting "pointer-events: none" makes it so that elements
   // behind the waves can still be clicked.
   pointer-events: none;
+
   * {
     pointer-events: none;
   }

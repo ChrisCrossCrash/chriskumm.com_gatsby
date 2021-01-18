@@ -40,7 +40,7 @@ const About = () => {
   return (
     <div
       id='about'
-      className='bg-indigo-900 text-white py-16 relative'
+      className='bg-indigo-900 text-white py-16 relative overflow-x-hidden'
       style={{
         clipPath: 'polygon(0 10vh, 100% 0%, 100% calc(100% - 10vh), 0% 100%)',
         paddingBottom: '10vh',

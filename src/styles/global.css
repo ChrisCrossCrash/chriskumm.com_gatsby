@@ -11,6 +11,10 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  img, video {
+    aspect-ratio: attr(width)/attr(height);
+  }
+
   body {
     @apply text-dark;
   }
@@ -48,10 +52,6 @@
 }
 html {
   scroll-behavior: smooth;
-}
-
-img, video {
-  aspect-ratio: attr(width)/attr(height);
 }
 
 .waves {
