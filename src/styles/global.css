@@ -11,15 +11,113 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  img, video {
-    aspect-ratio: attr(width)/attr(height);
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply text-dark;
   }
+
+  img, video {
+    aspect-ratio: attr(width)/attr(height);
+  }
 }
 @layer components {
+  .btn-kato {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 12rem;
+    height: auto;
+  }
+  .btn-kato * {
+    box-sizing: border-box;
+  }
+  .btn-kato *::before, .btn-kato *::after {
+    box-sizing: border-box;
+  }
+  .btn-kato .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #091e42;
+    border-radius: 1.625rem;
+  }
+  .btn-kato .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+  .btn-kato .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+  .btn-kato .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+  .btn-kato .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #091e42;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .btn-kato:hover .circle {
+    width: 100%;
+  }
+  .btn-kato:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+  .btn-kato:hover .button-text {
+    color: #fff;
+  }
+  @media (hover: none) {
+    .btn-kato .circle {
+      width: 100%;
+    }
+    .btn-kato .circle .icon.arrow {
+      background: #fff;
+      transform: translate(1rem, 0);
+    }
+    .btn-kato .button-text {
+      color: #fff;
+    }
+  }
+
   .link {
     @apply underline text-blue-700 hover:text-blue-800 visited:text-purple-700;
   }
@@ -49,144 +147,47 @@
   .submit-btn-success:disabled {
     @apply focus:ring-green-300 bg-green-600 hover:bg-green-600 opacity-100;
   }
-}
-html {
-  scroll-behavior: smooth;
-}
 
-.waves {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 15vh;
-  margin-bottom: -7px;
-  /*Fix for safari gap*/
-  min-height: 100px;
-  max-height: 150px;
-  pointer-events: none;
-}
-.waves * {
-  pointer-events: none;
-}
-.waves .parallax > use {
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-}
-.waves .parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.waves .parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.waves .parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.waves .parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-    transform: translate3d(-90px, 0, 0);
-  }
-  100% {
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-.btn-kato {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: 1rem;
-  font-family: inherit;
-  width: 12rem;
-  height: auto;
-}
-.btn-kato * {
-  box-sizing: border-box;
-}
-.btn-kato *::before, .btn-kato *::after {
-  box-sizing: border-box;
-}
-.btn-kato .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #091e42;
-  border-radius: 1.625rem;
-}
-.btn-kato .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
-}
-.btn-kato .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
-}
-.btn-kato .circle .icon.arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.25rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
-  transform: rotate(45deg);
-}
-.btn-kato .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  color: #091e42;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
-}
-.btn-kato:hover .circle {
-  width: 100%;
-}
-.btn-kato:hover .circle .icon.arrow {
-  background: #fff;
-  transform: translate(1rem, 0);
-}
-.btn-kato:hover .button-text {
-  color: #fff;
-}
-@media (hover: none) {
-  .btn-kato .circle {
+  .waves {
+    position: absolute;
+    bottom: 0;
     width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+    pointer-events: none;
   }
-  .btn-kato .circle .icon.arrow {
-    background: #fff;
-    transform: translate(1rem, 0);
+  .waves * {
+    pointer-events: none;
   }
-  .btn-kato .button-text {
-    color: #fff;
+  .waves .parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  }
+  .waves .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  .waves .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  .waves .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  .waves .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
   }
 }
 

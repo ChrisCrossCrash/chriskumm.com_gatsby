@@ -1,11 +1,32 @@
-import React, {useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {Formik, Form} from 'formik'
 import * as Yup from 'yup'
 import TextInput from './TextInput'
 import Spinner from './Spinner'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ContactForm = () => {
   const [success, setSuccess] = useState(false)
+
+  const nameRef = useRef(null)
+  const emailRef = useRef(null)
+  const messageRef = useRef(null)
+  const submitRef = useRef(null)
+
+  useEffect(() => {
+    const stagger = 0.2
+    gsap.timeline({scrollTrigger: nameRef.current})
+      .from([nameRef.current, emailRef.current, messageRef.current], {
+        opacity: 0,
+        x: -200,
+        duration: 0.5,
+        stagger: stagger,
+      })
+      .from(submitRef.current, {duration: 0.3, opacity: 0}, '>-0.3')
+  }, [])
 
   return (
     <Formik
@@ -69,12 +90,13 @@ const ContactForm = () => {
 
         return (
           <Form>
-            <TextInput variant='input' id='name' label='Name' name='name' type='text'/>
-            <TextInput variant='input' id='email' label='Email' name='email' type='email'/>
-            <TextInput variant='textarea' id='message' label='Message' name='message'/>
+            <TextInput ref={nameRef} variant='input' id='name' label='Name' name='name' type='text'/>
+            <TextInput ref={emailRef} variant='input' id='email' label='Email' name='email' type='email'/>
+            <TextInput ref={messageRef} variant='textarea' id='message' label='Message' name='message'/>
 
             <button
-              className={`submit-btn submit-btn-gray ${success ? 'submit-btn-success' : ''}`}
+              ref={submitRef}
+              className={`inline-block submit-btn submit-btn-gray ${success ? 'submit-btn-success' : ''}`}
               type='submit'
               disabled={isSubmitting || success}
               style={{minWidth: '10ch'}}

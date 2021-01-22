@@ -14,6 +14,7 @@ const PortfolioSite = ({project}) => {
   useEffect(() => {
 
     // This triggers a false-positive warning that can't be silenced
+    // noinspection JSUnresolvedFunction
     const textIsOnRightHalf = textRef.current.getBoundingClientRect().left > (window.innerWidth / 2)
 
     // Text fades in from outer side

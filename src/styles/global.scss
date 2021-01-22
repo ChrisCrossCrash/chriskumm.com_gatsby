@@ -20,18 +20,155 @@
 
 @layer base {
 
-  // Get the correct aspect ratio for images based on width and height HTML attributes
-  // https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping
-  img, video {
-    aspect-ratio: attr(width) / attr(height);
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply text-dark;
   }
+
+  // Get the correct aspect ratio for images based on width and height HTML attributes
+  // https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping
+  img, video {
+    //noinspection CssUnknownProperty
+    aspect-ratio: attr(width) / attr(height);
+  }
 }
 
 @layer components {
+
+  // Adapted from 'Button Hover' by Katherine Kato on Codepen
+  //  https://codepen.io/kathykato/pen/rZRaNe?editors=1100
+  .btn-kato {
+    $bg: #f3f8fa;
+    $white: #fff;
+    $black: #091e42;
+    @mixin transition(
+      $property: all,
+      $duration: 0.45s,
+      $ease: cubic-bezier(0.65, 0, 0.076, 1)
+    ) {
+      transition: $property $duration $ease;
+    }
+
+    * {
+      box-sizing: border-box;
+
+      &::before,
+      &::after {
+        box-sizing: border-box;
+      }
+    }
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 12rem;
+    height: auto;
+
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+
+          &::before {
+            position: absolute;
+            content: "";
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      .circle {
+        width: 100%;
+
+        .icon {
+          &.arrow {
+            background: $white;
+            transform: translate(1rem, 0);
+          }
+        }
+      }
+
+      .button-text {
+        color: $white;
+      }
+    }
+
+    // On devices that don't support hover, always show the 'hovered' style.
+    // TODO: On Rasberry Pi, it always showed the hovered style.
+    //  Also, it didn't show the hovered style on my tablet. Investigate.
+    @media (hover: none) {
+      & {
+        .circle {
+          width: 100%;
+
+          .icon {
+            &.arrow {
+              background: $white;
+              transform: translate(1rem, 0);
+            }
+          }
+        }
+
+        .button-text {
+          color: $white;
+        }
+      }
+    }
+  }
 
   .link {
     @apply underline text-blue-700 hover:text-blue-800 visited:text-purple-700;
@@ -69,191 +206,54 @@
     }
   }
 
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.waves {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 15vh;
-  margin-bottom: -7px; /*Fix for safari gap*/
-  min-height: 100px;
-  max-height: 150px;
-
-  // The waves shouldn't ever cover UI elements, but just in case,
-  // setting "pointer-events: none" makes it so that elements
-  // behind the waves can still be clicked.
-  pointer-events: none;
-
-  * {
-    pointer-events: none;
-  }
-
-  .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
-  }
-
-  .parallax > use:nth-child(1) {
-    animation-delay: -2s;
-    animation-duration: 7s;
-  }
-
-  .parallax > use:nth-child(2) {
-    animation-delay: -3s;
-    animation-duration: 10s;
-  }
-
-  .parallax > use:nth-child(3) {
-    animation-delay: -4s;
-    animation-duration: 13s;
-  }
-
-  .parallax > use:nth-child(4) {
-    animation-delay: -5s;
-    animation-duration: 20s;
-  }
-
-  @keyframes move-forever {
-    0% {
-      transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-      transform: translate3d(85px, 0, 0);
-    }
-  }
-}
-
-// Adapted from 'Button Hover' by Katherine Kato on Codepen
-//  https://codepen.io/kathykato/pen/rZRaNe?editors=1100
-.btn-kato {
-  $bg: #f3f8fa;
-  $white: #fff;
-  $black: #091e42;
-  @mixin transition(
-    $property: all,
-    $duration: 0.45s,
-    $ease: cubic-bezier(0.65, 0, 0.076, 1)
-  ) {
-    transition: $property $duration $ease;
-  }
-
-  * {
-    box-sizing: border-box;
-
-    &::before,
-    &::after {
-      box-sizing: border-box;
-    }
-  }
-
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: 1rem;
-  font-family: inherit;
-  width: 12rem;
-  height: auto;
-
-  .circle {
-    @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-    position: relative;
-    display: block;
-    margin: 0;
-    width: 3rem;
-    height: 3rem;
-    background: $black;
-    border-radius: 1.625rem;
-
-    .icon {
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      background: $white;
-
-      &.arrow {
-        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
-        left: 0.625rem;
-        width: 1.125rem;
-        height: 0.125rem;
-        background: none;
-
-        &::before {
-          position: absolute;
-          content: "";
-          top: -0.25rem;
-          right: 0.0625rem;
-          width: 0.625rem;
-          height: 0.625rem;
-          border-top: 0.125rem solid #fff;
-          border-right: 0.125rem solid #fff;
-          transform: rotate(45deg);
-        }
-      }
-    }
-  }
-
-  .button-text {
-    @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
+  .waves {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    padding: 0.75rem 0;
-    margin: 0 0 0 1.85rem;
-    color: $black;
-    font-weight: 700;
-    line-height: 1.6;
-    text-align: center;
-    text-transform: uppercase;
-  }
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px; /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
 
-  &:hover {
-    .circle {
-      width: 100%;
+    // The waves shouldn't ever cover UI elements, but just in case,
+    // setting "pointer-events: none" makes it so that elements
+    // behind the waves can still be clicked.
+    pointer-events: none;
 
-      .icon {
-        &.arrow {
-          background: $white;
-          transform: translate(1rem, 0);
-        }
-      }
+    * {
+      pointer-events: none;
     }
 
-    .button-text {
-      color: $white;
+    .parallax > use {
+      animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
     }
-  }
 
-  // On devices that don't support hover, always show the 'hovered' style.
-  // TODO: On Rasberry Pi, it always showed the hovered style.
-  //  Also, it didn't show the hovered style on my tablet. Investigate.
-  @media (hover: none) {
-    & {
-      .circle {
-        width: 100%;
+    .parallax > use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+    }
 
-        .icon {
-          &.arrow {
-            background: $white;
-            transform: translate(1rem, 0);
-          }
-        }
+    .parallax > use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+
+    .parallax > use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+    }
+
+    .parallax > use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+    }
+
+    @keyframes move-forever {
+      0% {
+        transform: translate3d(-90px, 0, 0);
       }
-
-      .button-text {
-        color: $white;
+      100% {
+        transform: translate3d(85px, 0, 0);
       }
     }
   }
