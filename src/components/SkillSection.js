@@ -3,7 +3,7 @@ import React from 'react'
 const SkillSection = ({title, skills, image}) => (
   <div
     style={{backgroundColor: '#00000044'}}
-    className='flex flex-col items-center'
+    className='flex flex-col items-center glass'
   >
     <img
       src={image}

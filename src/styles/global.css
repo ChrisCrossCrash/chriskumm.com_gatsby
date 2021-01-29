@@ -22,6 +22,14 @@
   img, video {
     aspect-ratio: attr(width)/attr(height);
   }
+
+  /* Glassmorphism related properties */
+  /* Warning: `backdrop-filter: blur()` doesn't work in Firefox with default settings (as of Jan 2021) */
+  .glass {
+    backdrop-filter: blur(10px);
+    border: solid 5px transparent;
+    background-clip: padding-box;
+  }
 }
 @layer components {
   .btn-kato {
