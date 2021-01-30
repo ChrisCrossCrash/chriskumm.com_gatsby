@@ -44,9 +44,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      flexDirection: ['odd'],
-      textColor: ['visited'],
-      opacity: ['disabled'],
+      flexDirection: ['odd'],  // For alternating order on portfolio projects
+      textColor: ['visited'],  // For coloring visited links
+      opacity: ['disabled'],  // For lowering the opacity on disabled buttons
     },
   },
   plugins: [
