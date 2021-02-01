@@ -1,0 +1,19 @@
+{
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ES6",
+    "lib": ["dom", "ES6"],
+    // "allowJs": true,
+    // "checkJs": true,
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    // About module resolution: https://www.typescriptlang.org/docs/handbook/module-resolution.html
+    "moduleResolution": "Node",
+  }
+}

@@ -3,7 +3,13 @@
 
 import React from 'react'
 
-const KatoButton = ({text, url}) => (
+interface Props {
+  text: string
+  // TODO: Find out if TS has a more specific type that only allows valid URLs
+  url: string
+}
+
+const KatoButton: React.FC<Props> = ({text, url}) => (
   <a href={url} target='_blank' rel='noreferrer' className='btn-kato'>
     <span className='circle' aria-hidden='true'>
       <span className='icon arrow'/>
