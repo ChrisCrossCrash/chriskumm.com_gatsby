@@ -58,44 +58,39 @@ function SEO(props) {
         },
       },
     },
-  } = useStaticQuery(graphql`
-    query {
+  } = useStaticQuery(graphql`{
       site {
-        siteMetadata {
-          title
-          description
-          author
-          siteUrl
-        }
+          siteMetadata {
+              title
+              description
+              author
+              siteUrl
+          }
       }
       siteConfigYaml {
-        title
-        description
-        lang
-        cardImage {
-          childImageSharp {
-            fixed(width: 1200, height: 627) {
-              src
-              width
-              height
-            }
+          title
+          description
+          lang
+          cardImage {
+              childImageSharp {
+                  gatsbyImageData(width: 1200, height: 627, placeholder: BLURRED, layout: FIXED)
+              }
           }
-        }
-        favicon {
-          childImageSharp {
-            fixed16: fixed(base64Width: 16) {
-              favicon16: base64
-            }
-            fixed32: fixed(base64Width: 32) {
-              favicon32: base64
-            }
-            fixed64: fixed(base64Width: 64) {
-              favicon64: base64
-            }
+          favicon {
+              childImageSharp {
+                  fixed16: fixed(base64Width: 16) {
+                      favicon16: base64
+                  }
+                  fixed32: fixed(base64Width: 32) {
+                      favicon32: base64
+                  }
+                  fixed64: fixed(base64Width: 64) {
+                      favicon64: base64
+                  }
+              }
           }
-        }
       }
-    }
+  }
   `)
 
   // Title

@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import KatoButton from './KatoButton'
-import Img from 'gatsby-image'
+import {GatsbyImage} from 'gatsby-plugin-image'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
@@ -39,13 +39,12 @@ const PortfolioSite = ({project}) => {
 
       {/* Mockup */}
       <div ref={imageRef} className='h-full w-full' style={{flex: '1 1 0px'}}>
-        <Img
+        <GatsbyImage
+          image={project.screenshot.childImageSharp.gatsbyImageData}
           className='w-full h-full object-contain rounded-2xl'
-          fluid={project.screenshot.childImageSharp.fluid}
           alt={`${project.title} screenshot`}
-          width={project.screenshot.childImageSharp.fluid.presentationWidth}
-          height={project.screenshot.childImageSharp.fluid.presentationHeight}
-        />
+          width={project.screenshot.childImageSharp.gatsbyImageData.presentationWidth}
+          height={project.screenshot.childImageSharp.gatsbyImageData.presentationHeight}/>
       </div>
 
       {/* Spacer element */}

@@ -4,35 +4,24 @@ import SectionHeading from '../components/SectionHeading'
 import PortfolioSite from '../components/PortfolioSite'
 
 const Portfolio = () => {
-  const {allPortfolioYaml: {projects}} = useStaticQuery(graphql`
-    query {
+  const {allPortfolioYaml: {projects}} = useStaticQuery(graphql`{
       allPortfolioYaml {
-        projects: nodes {
-          title
-          subtitle
-          description
-          features
-          technologies
-          url
-          id
-          screenshot {
-            childImageSharp {
-              fluid {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                presentationWidth
-                presentationHeight
+          projects: nodes {
+              title
+              subtitle
+              description
+              features
+              technologies
+              url
+              id
+              screenshot {
+                  childImageSharp {
+                      gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+                  }
               }
-            }
           }
-        }
       }
-    }
+  }
   `)
 
   return (

@@ -38,6 +38,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
